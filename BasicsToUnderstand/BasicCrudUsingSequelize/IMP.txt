@@ -1,0 +1,11 @@
+Add node modules yourself by using npm install
+and try makin a "fake" database in your sql already and remember your sql password
+use 
+npm install --save sequelize
+npm install --save mysql2   (remember to uninstall mysql first using npm uninstall mysql)
+npm install --save-dev sequelize-cli
+npx sequelize-cli init   (to create models directory(already created))
+npm install fs
+npm install path
+npm install express
+npm install nodemon(recommended)
