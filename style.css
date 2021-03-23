@@ -1,3 +1,8 @@
+body {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
 .nav-bar {
   display: flex;
   flex-wrap: wrap;
@@ -16,9 +21,13 @@
   display: flex;
   justify-content: flex-end;
   
-  background-color: yellow;
-
 }
+
+.login-signup .text {
+  background-color: yellow;
+  padding: 8px;
+}
+
 
 .logo { 
   height: 20px;
