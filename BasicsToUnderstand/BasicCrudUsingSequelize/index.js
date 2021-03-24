@@ -58,6 +58,34 @@ app.get('/home/:id', catchAsync(async (req, res) => {
     res.render('campgrounds/show', {campground});
 }))
 
+app.get('/home/:id/edit', catchAsync(async (req, res) => {
+    const campground1 = await User.findAll({ where: {id: req.params.id}});
+    const campground = campground1[0].dataValues;
+    res.render('campgrounds/edit', {campground});
+}))
+
+app.put('/home/:id', catchAsync(async (req, res) => {
+  const user = new User(req.body.campground);
+    const u = user.dataValues;
+    u.id=req.params.id;
+    const u1 = await User.update({ ...req.body.campground}, {
+        where: {
+          id: req.params.id
+        }
+      });
+    res.redirect(`/home/${req.params.id}`)
+}));
+
+app.delete('/home/:id', catchAsync(async (req, res) => {
+    const {id} = req.params;
+    console.log(id);
+    await User.destroy({
+        where: {
+          id: id
+        }
+      });
+    res.redirect('/home');
+}));
 
 app.get('/insert', (req, res) => {
     User.create({
