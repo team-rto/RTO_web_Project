@@ -48,9 +48,8 @@ app.post('/new', catchAsync(async (req, res, next) => {
    
     const user = new User(req.body.User);
     const u = user.dataValues;
-    await User.create(u);
-
-    res.redirect(`/home/${user._id}`)
+    const u1 = await User.create(u);
+    res.redirect(`/home/${u1.dataValues.id}`)
 }))
 app.get('/home/:id', catchAsync(async (req, res) => {
     console.log(req.params.id);
