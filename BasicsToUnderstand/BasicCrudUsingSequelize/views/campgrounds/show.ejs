@@ -6,20 +6,21 @@
         <div class="card mb-3" >
             <h1><%= campground.Name %></h1>
             <div class="card-body">
-              <h5 class="card-title"><%= campground.Name %> </h5>
+              <h5 class="card-title"><%= campground.id %> </h5>
               <p class="card-text"><%= campground.Address %> </p>
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item text-muted"><%= campground.Dob %> </li>
-              <li class="list-group-item">$<%= campground.age %> </li>
-              <li class="list-group-item">$<%= campground.father %> </li>
-              <li class="list-group-item">$<%= campground.Category %> </li>
+              <li class="list-group-item"><%= campground.age %> </li>
+              <li class="list-group-item"><%= campground.father %> </li>
+              <li class="list-group-item"><%= campground.Category %> </li>
             </ul>
             <div class="card-body">
-                <a class="card-link btn btn-info" href="/campgrounds/<%= campground._id%>/edit">Edit</a>
-                <form class="d-inline" action="/campgrounds/<%= campground._id%>?_method=DELETE" method="POST">
+                <a class="card-link btn btn-info" href="/home/<%= campground.id%>/edit">Edit</a>
+                <form class="d-inline" action="/home/<%= campground.id%>?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Delete</button>
                     </form>
+                    <a class="card-link btn btn-success" href="/home">Home</a>
             </div>
             <footer class="card-footer text-muted">
                 2 Days Ago
