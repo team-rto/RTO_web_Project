@@ -97,3 +97,46 @@ strong {
 /* for carousel */ 
 
 /* for carousel */ 
+ 
+/* for t&c page */
+div.tandc {
+  background-color: white;
+  margin-left: 300px;
+  margin-right: 300px;
+  font-family: 'Trebuchet MS';
+  font-weight: 900;
+  text-align:center;
+}
+.tandc p {
+  font-family:'Trebuchet MS';
+  text-align:left;
+  font-weight: normal;
+}
+.tandclist li {
+  font-family:'Trebuchet MS';
+  text-align:left;
+  font-weight: normal;
+}
+
+/* for t&c page */
+/* for privacy policy page */
+body.privacypolicy {
+  background-color: white;
+  margin-left: 300px;
+  margin-right: 300px;
+  font-family: 'Trebuchet MS';
+  font-weight: 900;
+  text-align:center;
+}
+
+.privacypolicy p {
+  font-family:'Trebuchet MS';
+  text-align:left;
+  font-weight: normal;
+}
+.privacypolicylist li {
+  font-family: 'Trebuchet MS';
+  text-align:left;
+  font-weight: normal;
+}
+/* for privacy policy page */
