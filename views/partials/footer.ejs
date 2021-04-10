@@ -1,15 +1,18 @@
-<footer class="footer bg-dark py-3 mt-auto">
-  <div class="container">
-    <span class="text-muted">&copy; RTO 2021</span>
-    <span class="text-muted"
-      >&copy; <a href="/policy"> @Privacy Policy</a>
-    </span>
+<!-- <footer class="footer bg-dark py-3 mt-auto"> -->
+  <!-- <div class="container"> -->
+    <!-- <span class="text-muted" id="left">&copy; RTO 2021 &copy;</span></li>
+   
+    <span class="text-muted text-sm-end" id="right"><a href="/policy" class="text-reset text-sm-end fs-6">@Privacy Policy</a></span> -->
+     
+    
+   
 
     <!-- Footer -->
-    <footer class="bg-dark text-center text-white">
-      <!-- Grid container -->
+    <footer class="footer bg-dark text-center text-white py-3 mt-auto">
+      <section class="footer">
+          <!-- Grid container -->
       <div class="container p-4">
-        <!-- Section: Social media -->
+        <!-- Section: Social media -->        
         <section class="mb-4">
           <!-- Facebook -->
           <a
@@ -202,26 +205,36 @@
           <!--Grid row-->
         </section>
         <!-- Section: Links -->
+         <!-- Copyright -->
+      <div class="text-center p-3" >
+        <span class="text-white fs-5" id="left">&copy; RTO 2021  &copy;</span>
+        <span class="text-white fs-5" id="center">
+         <a href="/policy" class="text-white fs-5"> @Privacy Policy</a>
+        </span>
+        <span class="text-white fs-5" id="right"> <a href="/Terms" class="text-white fs-5"> Terms and Conditions</a>
+        </span>
+      </div>
+      <!-- Copyright -->
       </div>
       <!-- Grid container -->
+      </section>    
 
-      <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        <span class="text-white">&copy; RTO 2021</span>
-        <span class="text-white"
-          >&copy; <a href="/policy"> @Privacy Policy</a>
-        </span>
-        <span class="text-white"
-          >&copy; <a href="/Terms"> Terms and Conditions</a>
-        </span>
-      </div>
-      <!-- Copyright -->
+     
     </footer>
     <!-- Footer -->
   </div>
 </footer>
 
 <style>
+  #left {
+    float: left;
+  }
+  #right {
+    float: right;
+  }
+  #center{
+    float: center;
+  }
   .fab {
     font-size: 2rem;
     margin: 10px;
