@@ -46,6 +46,10 @@ app.get("/policy", (req, res) => {
   res.render("campgrounds/privacypolicy");
 });
 
+app.get("/Terms", (req, res) => {
+  res.render("campgrounds/Termsandconditions");
+});
+
 app.get("/home/new", (req, res) => {
   res.render("campgrounds/new");
 });
