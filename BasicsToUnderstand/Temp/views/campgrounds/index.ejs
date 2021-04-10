@@ -1,0 +1,29 @@
+<% layout('layouts/boilerplate')%> 
+<h1>All Users!!</h1>
+    <div>
+        <a href="/home/new">Add New User</a>
+    </div>
+
+        <% for (let campground of campgrounds) {%>
+            <div class="card" mb-3>
+                <div class="row">
+                    <div class="col-md-4">
+                    <h1><%= campground.Name %></h1>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= campground.Dob %> 
+                            </h5>
+                            <p class="card-text"> <%= campground.Category %> </p>
+                            <p class="card-text">
+                                <small class="text-muted"><%= campground.age %> </small>
+
+                            </p>
+                            <a class="btn btn-info" href="/home/<%= campground.id %> ">View <%= campground.Name %> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } %> 
+    

@@ -1,0 +1,59 @@
+<% layout('layouts/boilerplate')%> 
+<div class="row">
+    <h1 class="text-center">New Campground</h1>
+    <div class="col-6 offset-3">
+    <form action="/new" method="POST" novalidate class="validatedForm">
+        <div class="mb-3">
+            <label class="form-label" for="title">Name</label>
+            <input class="form-control" type="text" id="name" name="User[Name]" required>
+            <div class="valid-feedback">
+                Looks Good!!
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="Dob">DOB</label>
+            <input class="form-control" type="text" id="DOB" name="User[Dob]" required>
+            <div class="valid-feedback">
+                Looks Good!!
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="Category">Category</label>
+            <input class="form-control" type="text" id="category" name="User[Category]" required>
+            <div class="valid-feedback">
+                Looks Good!!
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="father">Father's Name</label>
+            <input class="form-control" type="text" id="Father" name="User[father]" required>
+            <div class="valid-feedback">
+                Looks Good!!
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="age">Age</label>
+            <div class="input-group">
+                <!-- <span class="input-group-text" id="price-label">$</span> -->
+                <input type="text" class="form-control" id="Age" placeholder="" aria-label="Username" aria-describedby="price-label" name="User[age]" required>
+                <div class="valid-feedback">
+                    Looks Good!!
+                </div>
+              </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="address">Address</label>
+            <textarea class="form-control" type="text" id="description" name="User[Address]" required></textarea>
+            <div class="valid-feedback">
+                Looks Good!!
+            </div>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-success">Add Campground</button>
+        </div>
+       
+    </form>
+    <a href="/home" >All Campgrounds</a>
+    </div>
+</div>
+
