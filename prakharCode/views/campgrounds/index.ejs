@@ -17,7 +17,7 @@
         <p class="card-text">
           <small class="text-muted"><%= campground.age %> </small>
         </p>
-        <a class="btn btn-info" href="/home/<%= campground.id %> "
+        <a class="btn btn-primary btn-info" href="/home/<%= campground.id %> "
           >View <%= campground.Name %>
         </a>
       </div>
@@ -25,3 +25,29 @@
   </div>
 </div>
 <% } %>
+
+<style>
+  .card {
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+  }
+  h5 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  p {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.25rem;
+  }
+  .card h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+  }
+</style>
