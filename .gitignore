@@ -1,7 +1,14 @@
 # for macos
 .DS_Store
+
 <<<<<<< HEAD
-node_modules
+
+# .idea
+**/.idea/workspace.xml
+**/.idea/usage.statistics.xml
+**/.idea/tasks.xml
+
+node_modules/
 =======
 # Logs
 logs
