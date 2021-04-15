@@ -54,6 +54,14 @@ app.get("/home/Login_Register", (req, res) => {
   res.render("campgrounds/Login_Register/index");
 });
 
+app.get("/forgot", (req, res) => {
+  res.render("campgrounds/Login_Register/forgot");
+});
+
+app.get("/register", (req, res) => {
+  res.render("campgrounds/Login_Register/register");
+});
+
 app.get("/home/new", (req, res) => {
   res.render("campgrounds/new");
 });
@@ -118,7 +126,6 @@ app.delete(
     res.redirect("/home");
   })
 );
-
 
 db.sequelize.sync().then((req) => {
   app.listen(3001, () => {
