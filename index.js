@@ -50,7 +50,7 @@ app.get("/Terms", (req, res) => {
   res.render("campgrounds/Termsandconditions");
 });
 
-app.get("/Login_Register", (req, res) => {
+app.get("/home/Login_Register", (req, res) => {
   res.render("campgrounds/Login_Register/index");
 });
 
@@ -119,20 +119,6 @@ app.delete(
   })
 );
 
-app.get("/insert", (req, res) => {
-  User.create({
-    firstName: "pedro",
-    age: 19,
-  }).catch((err) => {
-    console.log(err);
-  });
-  res.send("Inserted");
-});
-
-app.get("/delete", (req, res) => {
-  User.destroy({ where: { id: 4 } });
-  res.send("Deleted");
-});
 
 db.sequelize.sync().then((req) => {
   app.listen(3001, () => {
