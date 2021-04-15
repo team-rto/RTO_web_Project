@@ -50,6 +50,10 @@ app.get("/Terms", (req, res) => {
   res.render("campgrounds/Termsandconditions");
 });
 
+app.get("/Login_Register", (req, res) => {
+  res.render("campgrounds/Login_Register/index");
+});
+
 app.get("/home/new", (req, res) => {
   res.render("campgrounds/new");
 });
