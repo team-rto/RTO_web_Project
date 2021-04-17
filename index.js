@@ -18,6 +18,7 @@ app.use(methodOverride("_method"));
 const db = require("./models");
 
 const { User } = require("./models");
+const { Client } = require("./models");
 
 // const db = mysql.createConnection({
 //     user: "root",
@@ -66,7 +67,7 @@ app.get("/home/new", (req, res) => {
   res.render("campgrounds/new");
 });
 app.post(
-  "/new",
+  "/home",
   catchAsync(async (req, res, next) => {
     //if (!req.body.campground) throw new ExpressError('Invalid Campground Data!!', 400);
 
