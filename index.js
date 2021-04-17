@@ -26,15 +26,7 @@ const { Client } = require("./models");
 //     password: "password",
 //     database: "fake"
 // });
-app.get("/select", (req, res) => {
-  User.findAll()
-    .then((user) => {
-      res.send(user);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+
 app.get(
   "/home",
   catchAsync(async (req, res) => {
@@ -61,6 +53,10 @@ app.get("/forgot", (req, res) => {
 
 app.get("/register", (req, res) => {
   res.render("campgrounds/Login_Register/register");
+});
+
+app.get("/index", (req, res) => {
+  res.render("campgrounds/Login_Register/index");
 });
 
 app.get("/home/new", (req, res) => {
