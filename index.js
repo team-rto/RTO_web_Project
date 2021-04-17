@@ -25,15 +25,7 @@ const { User } = require("./models");
 //     password: "password",
 //     database: "fake"
 // });
-app.get("/select", (req, res) => {
-  User.findAll()
-    .then((user) => {
-      res.send(user);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+
 app.get(
   "/home",
   catchAsync(async (req, res) => {
