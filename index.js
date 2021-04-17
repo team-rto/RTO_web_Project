@@ -1,5 +1,4 @@
 const express = require("express");
-// This is a comment
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const { Sequelize } = require("sequelize");
@@ -53,6 +52,10 @@ app.get("/forgot", (req, res) => {
 
 app.get("/register", (req, res) => {
   res.render("campgrounds/Login_Register/register");
+});
+
+app.get("/index", (req, res) => {
+  res.render("campgrounds/Login_Register/index");
 });
 
 app.get("/home/new", (req, res) => {
