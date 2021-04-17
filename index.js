@@ -1,4 +1,5 @@
 const express = require("express");
+// This is a comment
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const { Sequelize } = require("sequelize");
