@@ -26,7 +26,12 @@ const { Client } = require("./models");
 //     password: "password",
 //     database: "fake"
 // });
-
+app.get(
+  "/",
+  catchAsync(async (req, res) => {
+    res.render("main_page/front");
+  })
+);
 app.get(
   "/home",
   catchAsync(async (req, res) => {
@@ -43,7 +48,7 @@ app.get("/Terms", (req, res) => {
   res.render("campgrounds/Termsandconditions");
 });
 
-app.get("/home/Login_Register", (req, res) => {
+app.get("/user/Login_Register", (req, res) => {
   res.render("campgrounds/Login_Register/index");
 });
 
