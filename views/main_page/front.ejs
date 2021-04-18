@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,31 +7,27 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
                            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/0932b7d8ec.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0932b7d8ec.js" crossorigin="anonymous"></script>
   </head>
+  <%- include('../partials/navbar') %>
 
   <body>
-    <%- include('../partials/navbar') %>
 
     <div class="frontLoginPage">
       <div class="container">
         <div class="imagefront">
         <img
-        
-            src="https://thumbs.dreamstime.com/b/driver-licence-icon-driver-id-card-vector-license-drive-identity-photo-identification-driver-licence-icon-driver-id-card-vector-167518886.jpg"
+            src="https://st1.bgr.in/wp-content/uploads/2021/03/DL-Online.jpg"
             alt="">
-            
-            </div>
-          <a href="/home" role="button" class="btn btn-primary btn-lg btn-block"> <i class="fas fa-user-shield"></i> ADMIN</a>
-          <a href="/user/Login_Register" role="button" class="btn btn-secondary btn-lg btn-block"><i class="fas fa-users"></i> USER</a>
+
+        <a href="/home" role="button" class="btn btn-primary btn-lg btn-block"><i class="fas fa-user-shield"></i> ADMIN</a>
+        <a href="/user/Login_Register" role="button" class="btn btn-secondary btn-lg btn-block"><i class="fas fa-users"></i> USER</a>
       </div>
     </div>
     </div>
-    <%- include('../partials/footer') %>
   </body>
-
+  <%- include('../partials/footer') %>
 </html>
 
 <style>
@@ -51,10 +46,10 @@
   justify-content: center;
 
   /*
-  border-top: 2px solid gray;
-  border-right: 2px solid gray;
-  border-left: 2px solid gray;
-  */
+     border-top: 2px solid gray;
+     border-right: 2px solid gray;
+     border-left: 2px solid gray;
+   */
 }
 
 .frontLoginPage .fas {
