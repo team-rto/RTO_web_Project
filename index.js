@@ -41,7 +41,7 @@ app.get(
   "/home",
   catchAsync(async (req, res) => {
     const campgrounds = await User.findAll();
-    res.render("campgrounds/index", { campgrounds });
+    res.render("campgrounds/login_register/login/index", { campgrounds });
   })
 );
 
@@ -58,15 +58,15 @@ app.get("/user/:id/dashboard/dl", (req, res) => {
 });
 
 app.get("/user/forgot", (req, res) => {
-  res.render("campgrounds/Login_Register/forgot");
+  res.render("campgrounds/Login_Register/forgot/forgot");
 });
 
 app.get("/user/forgot/reset", (req, res) => {
-  res.render("campgrounds/Login_Register/reset");
+  res.render("campgrounds/Login_Register/reset/reset");
 });
 
 app.get("/user/register", (req, res) => {
-  res.render("campgrounds/Login_Register/register");
+  res.render("campgrounds/Login_Register/register/register");
 });
 app.post(
   "/user",
@@ -85,8 +85,8 @@ app.post(
   })
 );
 
-app.get("/user/Login_Register", (req, res) => {
-  res.render("campgrounds/Login_Register/index");
+app.get("/user/Login_Register/login", (req, res) => {
+  res.render("campgrounds/Login_Register/login/index");
 });
 app.post("/user/login", async (req, res) => {
   const login = new Login(req.body.Login);
@@ -100,7 +100,7 @@ app.post("/user/login", async (req, res) => {
     req.session.user_id = data.id;
     res.redirect(`/user/${data.id}/dashboard`);
   } else {
-    res.redirect("/user/Login_Register");
+    res.redirect("/user/Login_Register/login/index");
   }
 });
 
@@ -131,12 +131,12 @@ app.get(
 app.post("/user/logout", (req, res) => {
   //req.session.user_id = null;
   req.session.destroy();
-  res.redirect("/user/Login_Register");
+  res.redirect("/user/Login_Register/login/index");
 });
 
 app.get("/user/:id/dashboard", (req, res) => {
   if (!req.session.user_id) {
-    res.redirect("/user/Login_Regiter");
+    res.redirect("/user/Login_Register/login/index");
   }
   res.render("main_page/services");
 });
