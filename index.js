@@ -5,6 +5,7 @@ const { Sequelize } = require("sequelize");
 const catchAsync = require("./utils/catchAsync");
 const ExpressError = require("./utils/ExpressError");
 const methodOverride = require("method-override");
+const bcrypt = require("bcrypt");
 
 const app = express();
 
@@ -19,6 +20,7 @@ const db = require("./models");
 
 const { User } = require("./models");
 const { Client } = require("./models");
+const { Login } = require("./models");
 
 // const db = mysql.createConnection({
 //     user: "root",
@@ -48,20 +50,50 @@ app.get("/Terms", (req, res) => {
   res.render("campgrounds/Termsandconditions");
 });
 
-app.get("/user/Login_Register", (req, res) => {
-  res.render("campgrounds/Login_Register/index");
-});
 
-app.get("/forgot", (req, res) => {
+
+app.get("/user/forgot", (req, res) => {
   res.render("campgrounds/Login_Register/forgot");
 });
 
-app.get("/register", (req, res) => {
-  res.render("campgrounds/Login_Register/register");
+app.get("/user/forgot/reset", (req, res) => {
+  res.render("campgrounds/Login_Register/reset");
 });
 
-app.get("/index", (req, res) => {
+app.get("/user/register", (req, res) => {
+  res.render("campgrounds/Login_Register/register");
+});
+app.post(
+  "/user",
+  catchAsync(async (req, res, next) => {
+    //if (!req.body.campground) throw new ExpressError('Invalid Campground Data!!', 400);
+
+    const login = new Login(req.body.Login);
+    const l = login.dataValues;
+    const password = l.password;
+    const hash = await bcrypt.hash(password, 12)
+    l.password = hash;
+    const l1 = await Login.create(l);
+     res.redirect(`/user/${l1.dataValues.id}/dashboard`);
+  })
+);
+
+app.get("/user/Login_Register", (req, res) => {
   res.render("campgrounds/Login_Register/index");
+});
+app.post('/user/login', async (req, res) => {
+  const login = new Login(req.body.Login);
+    const l = login.dataValues;
+    const password = l.password;
+    const email = l.email;
+    const data = await Login.findOne({ where: { email: email } });
+    const validPassword = await bcrypt.compare(password, data.password);
+    if(validPassword){
+      res.send("Welcome");
+    }
+    else{
+      res.send("Try Again");
+    }
 });
 
 app.get("/home/new", (req, res) => {

@@ -11,14 +11,14 @@
           <div class="card fat">
             <div class="card-body">
               <h4 class="card-title">Login</h4>
-              <form method="POST" class="my-login-validation" novalidate="">
+              <form action="/user/login" method="POST" class="my-login-validation" novalidate="">
                 <div class="form-group">
                   <label for="email">E-Mail Address</label>
                   <input
                     id="email"
                     type="email"
                     class="form-control"
-                    name="email"
+                    name="Login[email]"
                     value=""
                     required
                     autofocus
@@ -29,13 +29,13 @@
                 <div class="form-group">
                   <label for="password"
                     >Password
-                    <a href="/forgot" class="float-right"> Forgot Password? </a>
+                    <a href="/user/forgot" class="float-right"> Forgot Password? </a>
                   </label>
                   <input
                     id="password"
                     type="password"
                     class="form-control"
-                    name="password"
+                    name="Login[password]"
                     required
                     data-eye
                   />
@@ -63,7 +63,7 @@
                 </div>
                 <div class="mt-4 text-center">
                   Don't have an account?
-                  <a href="/register">Create One</a>
+                  <a href="/user/register">Create One</a>
                 </div>
               </form>
             </div>
