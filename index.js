@@ -6,6 +6,7 @@ const catchAsync = require("./utils/catchAsync");
 const ExpressError = require("./utils/ExpressError");
 const methodOverride = require("method-override");
 const bcrypt = require("bcrypt");
+const session = require("express-session");
 
 const app = express();
 
@@ -15,6 +16,8 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use(session({secret: 'notagoodsecret' }));
+app.use(express.static("public"));
 
 const db = require("./models");
 
@@ -50,7 +53,9 @@ app.get("/Terms", (req, res) => {
   res.render("campgrounds/Termsandconditions");
 });
 
-
+app.get('/user/:id/dashboard/dl', (req, res) => {
+  res.render('main_page/LicenseApplication');
+})
 
 app.get("/user/forgot", (req, res) => {
   res.render("campgrounds/Login_Register/forgot");
@@ -74,6 +79,8 @@ app.post(
     const hash = await bcrypt.hash(password, 12)
     l.password = hash;
     const l1 = await Login.create(l);
+    //console.log(l1.dataValues.id);
+    req.session.user_id = l1.dataValues.id;
      res.redirect(`/user/${l1.dataValues.id}/dashboard`);
   })
 );
@@ -88,11 +95,13 @@ app.post('/user/login', async (req, res) => {
     const email = l.email;
     const data = await Login.findOne({ where: { email: email } });
     const validPassword = await bcrypt.compare(password, data.password);
+    //console.log(data.id);
     if(validPassword){
-      res.send("Welcome");
+      req.session.user_id = data.id;
+      res.redirect(`/user/${data.id}/dashboard`);
     }
     else{
-      res.send("Try Again");
+      res.redirect('/user/Login_Register');
     }
 });
 
@@ -119,6 +128,19 @@ app.get(
     res.render("campgrounds/show", { campground });
   })
 );
+
+app.post('/user/logout', (req, res) => {
+  //req.session.user_id = null;
+  req.session.destroy();
+  res.redirect('/user/Login_Register');
+})
+
+app.get("/user/:id/dashboard", (req, res) => {
+  if(!req.session.user_id){
+    res.redirect('/user/Login_Regiter')
+  }
+  res.render("main_page/services");
+});
 
 app.get(
   "/home/:id/edit",
@@ -160,6 +182,7 @@ app.delete(
     res.redirect("/home");
   })
 );
+
 
 db.sequelize.sync().then((req) => {
   app.listen(3001, () => {
