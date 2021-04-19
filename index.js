@@ -53,9 +53,13 @@ app.get("/Terms", (req, res) => {
   res.render("campgrounds/terms/terms");
 });
 
+<<<<<<< HEAD
 app.get("/user/:id/dashboard/dl", (req, res) => {
   res.render("main_page/LicenseApplication");
 });
+=======
+
+>>>>>>> 66983619bd8cf37cc4773907488c6151fd3992dd
 
 app.get("/user/forgot", (req, res) => {
   res.render("campgrounds/Login_Register/forgot/forgot");
@@ -141,6 +145,9 @@ app.get("/user/:id/dashboard", (req, res) => {
   res.render("main_page/services");
 });
 
+app.get(`/user/:id/dashboard/dl`, (req, res) => {
+  res.render('main_page/LicenseApplication');
+})
 app.get(
   "/home/:id/edit",
   catchAsync(async (req, res) => {
