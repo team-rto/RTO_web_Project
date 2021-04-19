@@ -16,7 +16,7 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.use(session({secret: 'notagoodsecret' }));
+app.use(session({ secret: "notagoodsecret" }));
 app.use(express.static("public"));
 
 const db = require("./models");
@@ -46,16 +46,16 @@ app.get(
 );
 
 app.get("/policy", (req, res) => {
-  res.render("campgrounds/privacypolicy");
+  res.render("campgrounds/privacy/privacypolicy");
 });
 
 app.get("/Terms", (req, res) => {
-  res.render("campgrounds/Termsandconditions");
+  res.render("campgrounds/terms/terms");
 });
 
-app.get('/user/:id/dashboard/dl', (req, res) => {
-  res.render('main_page/LicenseApplication');
-})
+app.get("/user/:id/dashboard/dl", (req, res) => {
+  res.render("main_page/LicenseApplication");
+});
 
 app.get("/user/forgot", (req, res) => {
   res.render("campgrounds/Login_Register/forgot");
@@ -76,37 +76,36 @@ app.post(
     const login = new Login(req.body.Login);
     const l = login.dataValues;
     const password = l.password;
-    const hash = await bcrypt.hash(password, 12)
+    const hash = await bcrypt.hash(password, 12);
     l.password = hash;
     const l1 = await Login.create(l);
     //console.log(l1.dataValues.id);
     req.session.user_id = l1.dataValues.id;
-     res.redirect(`/user/${l1.dataValues.id}/dashboard`);
+    res.redirect(`/user/${l1.dataValues.id}/dashboard`);
   })
 );
 
 app.get("/user/Login_Register", (req, res) => {
   res.render("campgrounds/Login_Register/index");
 });
-app.post('/user/login', async (req, res) => {
+app.post("/user/login", async (req, res) => {
   const login = new Login(req.body.Login);
-    const l = login.dataValues;
-    const password = l.password;
-    const email = l.email;
-    const data = await Login.findOne({ where: { email: email } });
-    const validPassword = await bcrypt.compare(password, data.password);
-    //console.log(data.id);
-    if(validPassword){
-      req.session.user_id = data.id;
-      res.redirect(`/user/${data.id}/dashboard`);
-    }
-    else{
-      res.redirect('/user/Login_Register');
-    }
+  const l = login.dataValues;
+  const password = l.password;
+  const email = l.email;
+  const data = await Login.findOne({ where: { email: email } });
+  const validPassword = await bcrypt.compare(password, data.password);
+  //console.log(data.id);
+  if (validPassword) {
+    req.session.user_id = data.id;
+    res.redirect(`/user/${data.id}/dashboard`);
+  } else {
+    res.redirect("/user/Login_Register");
+  }
 });
 
 app.get("/home/new", (req, res) => {
-  res.render("campgrounds/new");
+  res.render("campgrounds/new/new");
 });
 app.post(
   "/home",
@@ -129,15 +128,15 @@ app.get(
   })
 );
 
-app.post('/user/logout', (req, res) => {
+app.post("/user/logout", (req, res) => {
   //req.session.user_id = null;
   req.session.destroy();
-  res.redirect('/user/Login_Register');
-})
+  res.redirect("/user/Login_Register");
+});
 
 app.get("/user/:id/dashboard", (req, res) => {
-  if(!req.session.user_id){
-    res.redirect('/user/Login_Regiter')
+  if (!req.session.user_id) {
+    res.redirect("/user/Login_Regiter");
   }
   res.render("main_page/services");
 });
@@ -182,7 +181,6 @@ app.delete(
     res.redirect("/home");
   })
 );
-
 
 db.sequelize.sync().then((req) => {
   app.listen(3001, () => {
