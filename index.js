@@ -16,7 +16,7 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.use(session({ secret: "notagoodsecret" }));
+// app.use(session({ secret: "notagoodsecret" })); // heroku was showing error.
 app.use(express.static("public"));
 
 const db = require("./models");
