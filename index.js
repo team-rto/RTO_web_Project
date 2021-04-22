@@ -16,7 +16,13 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.use(session({ secret: "notagoodsecret" })); // heroku was showing error, but must for signing in
+//app.use(session({ secret: "hello" })); // heroku was showing error, but must for signing in
+app.use(session({
+  secret: 'User Data',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
 app.use(express.static("public"));
 
 const db = require("./models");
@@ -41,7 +47,7 @@ app.get(
   "/home",
   catchAsync(async (req, res) => {
     const campgrounds = await User.findAll();
-    res.render("campgrounds/login_register/login/index", { campgrounds });
+    res.render("campgrounds/index/index", { campgrounds });
   })
 );
 
@@ -96,7 +102,7 @@ app.post("/user/login", async (req, res) => {
     req.session.user_id = data.id;
     res.redirect(`/user/${data.id}/dashboard`);
   } else {
-    res.redirect("/user/Login_Register/login/index");
+    res.redirect("/user/Login_Register/login");
   }
 });
 
@@ -127,12 +133,12 @@ app.get(
 app.post("/user/logout", (req, res) => {
   //req.session.user_id = null;
   req.session.destroy();
-  res.redirect("/user/Login_Register/login/index");
+  res.redirect("/user/Login_Register/login");
 });
 
 app.get("/user/:id/dashboard", (req, res) => {
   if (!req.session.user_id) {
-    res.redirect("/user/Login_Register/login/index");
+    res.redirect("/user/Login_Register/login");
   }
   res.render("main_page/services");
 });
