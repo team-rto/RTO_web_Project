@@ -181,8 +181,10 @@ app.delete(
   })
 );
 
+/*
 db.sequelize.sync().then((req) => {
   app.listen(3001, () => {
     console.log("Server Running");
   });
 });
+*/
