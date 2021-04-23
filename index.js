@@ -17,12 +17,14 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 //app.use(session({ secret: "hello" })); // heroku was showing error, but must for signing in
-app.use(session({
-  secret: 'User Data',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
-}))
+app.use(
+  session({
+    secret: "User Data",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true },
+  })
+);
 app.use(express.static("public"));
 
 const db = require("./models");
@@ -186,7 +188,6 @@ app.delete(
     res.redirect("/home");
   })
 );
-
 
 db.sequelize.sync().then((req) => {
   app.listen(3001, () => {
