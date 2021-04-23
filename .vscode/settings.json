@@ -1,4 +1,7 @@
 {
-    "appService.defaultWebAppToDeploy": "/subscriptions/dc983a98-e1ca-48f2-83be-5300a1fb9508/resourceGroups/DefaultResourceGroup-SEA/providers/Microsoft.Web/sites/Team-Rto",
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": ".",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ]
 }

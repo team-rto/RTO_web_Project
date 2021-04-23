@@ -1,7 +1,13 @@
+var ai = require('applicationinsights')
+ai.setup(process.env.APPLICATIONINSIGHTSKEY || 'your_instrumentation_key').start()
+
+
 const express = require("express");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const { Sequelize } = require("sequelize");
+const https = require("https");
+const fs = require("fs");
 const catchAsync = require("./utils/catchAsync");
 const ExpressError = require("./utils/ExpressError");
 const methodOverride = require("method-override");
@@ -9,6 +15,8 @@ const bcrypt = require("bcrypt");
 const session = require("express-session");
 
 const app = express();
+
+app.set('etag', false)
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
@@ -20,14 +28,6 @@ app.use(methodOverride("_method"));
 app.use(session({ secret: "hello", resave: false,  saveUninitialized: true})); // heroku was showing error, but must for signing in
 
 app.use(express.static("public"));
-
-// app.set('trust proxy', 1) // trust first proxy
-// app.use(session({secret: "hello",
-//   resave: false,
-//   saveUninitialized: true,
-//   cookie: { secure: true }
-// }));
-
 const db = require("./models");
 
 const { User } = require("./models");
@@ -184,14 +184,17 @@ app.delete(
     await User.destroy({
       where: {
         id: id,
-      },
+      }
     });
     res.redirect("/home");
   })
 );
 
 db.sequelize.sync().then((req) => {
-  app.listen(3001, () => {
-    console.log("Server Running");
-  });
+  // app.listen(3001, () => {
+  //   console.log("Server Running");
+  // });
+  const server = app.listen(config.server.port, () => {
+    console.log(`Sticker server running on port ${server.address().port}`)
+  })
 });
