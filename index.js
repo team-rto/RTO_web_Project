@@ -197,12 +197,11 @@ app.delete(
   })
 );
 
-
-db.sequelize.sync().then((req) => {
+//db.sequelize.sync().then((req) => {
   // app.listen(3001, () => {
   //   console.log("Server Running");
   // });
   const server = app.listen(config1.server.port, () => {
     console.log(`Sticker server running on port ${server.address().port}`)
   })
-});
+//});

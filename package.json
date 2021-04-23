@@ -1,7 +1,7 @@
 {
   "name": "rto",
   "version": "1.0.0",
-  "description": "",
+  "description": "- type `npm i` to add all the dependencies of node/express js\r - Goto config open `create_your_config.json`\r - Enter your username and password for ex. you might be having default username `root` and password `12345`, sql password\r - replace only in **first para**\r - Make sure you have sql installed and running !!\r - Also install sequeelize and all other dependencies (npm i)\r - Then create a database of `fakedata1` (as mention in `config.json`) in your sql database.\r - It should start working now.\r - Try typing `nodemon index.js` (make sure you are in right directory)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -37,7 +37,8 @@
     "node": "^16.0.0",
     "nvm": "0.0.4",
     "path": "^0.12.7",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "tedious": "^11.0.7"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.5",
