@@ -33,6 +33,8 @@ const db = require("./models");
 const { User } = require("./models");
 const { Client } = require("./models");
 const { Login } = require("./models");
+const config1 = require('./config1.js')
+console.log(config1);
 
 // const db = mysql.createConnection({
 //     user: "root",
@@ -195,11 +197,12 @@ app.delete(
   })
 );
 
+
 db.sequelize.sync().then((req) => {
-  app.listen(3001, () => {
-    console.log("Server Running");
-  });
-  // const server = app.listen(config.server.port, () => {
-  //   console.log(`Sticker server running on port ${server.address().port}`)
-  // })
+  // app.listen(3001, () => {
+  //   console.log("Server Running");
+  // });
+  const server = app.listen(config1.server.port, () => {
+    console.log(`Sticker server running on port ${server.address().port}`)
+  })
 });
