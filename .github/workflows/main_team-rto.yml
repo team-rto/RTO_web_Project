@@ -52,5 +52,5 @@ jobs:
       with:
         app-name: 'team-rto'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f6a64a4db43f49ecb18a16c03549d4d5 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f0d100f49f914c2f89471de36a0f96a1 }}
         package: .
