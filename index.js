@@ -17,7 +17,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 /* Don't comment below line, user login system will fail */
-app.use(session({ secret: "hello", resave: false,  saveUninitialized: true})); // heroku was showing error, but must for signing in
+app.use(session({ secret: "hello", resave: false, saveUninitialized: true })); // heroku was showing error, but must for signing in
 
 app.use(express.static("public"));
 
@@ -149,6 +149,11 @@ app.get("/user/:id/dashboard", (req, res) => {
 app.get(`/user/:id/dashboard/dl`, (req, res) => {
   res.render("main_page/LicenseApplication");
 });
+
+app.get(`/user/:id/dashboard/RC`, (req, res) => {
+  res.render("main_page/carRegistration");
+});
+
 app.get(
   "/home/:id/edit",
   catchAsync(async (req, res) => {
