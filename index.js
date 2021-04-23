@@ -17,16 +17,16 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 /* Don't comment below line, user login system will fail */
-app.use(session({ secret: "hello" })); // heroku was showing error, but must for signing in
-app.use(
-  session({
-    secret: "User Data",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true },
-  })
-);
+app.use(session({ secret: "hello", resave: false,  saveUninitialized: true})); // heroku was showing error, but must for signing in
+
 app.use(express.static("public"));
+
+// app.set('trust proxy', 1) // trust first proxy
+// app.use(session({secret: "hello",
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: { secure: true }
+// }));
 
 const db = require("./models");
 
