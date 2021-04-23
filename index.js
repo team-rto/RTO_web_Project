@@ -16,7 +16,8 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-//app.use(session({ secret: "hello" })); // heroku was showing error, but must for signing in
+/* Don't comment below line, user login system will fail */
+app.use(session({ secret: "hello" })); // heroku was showing error, but must for signing in
 app.use(
   session({
     secret: "User Data",
