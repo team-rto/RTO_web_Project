@@ -4,29 +4,29 @@
 <div class="row">
   <div class="col-6 offset-3">
     <div class="card mb-3">
-      <h1><%= campground.Name %></h1>
+      <h1><%= campground.fname %> <%= campground.lname%></h1>
       <div class="card-body">
-        <h5 class="card-title"><%= campground.id %></h5>
-        <p class="card-text"><%= campground.Address %></p>
+        <h5 class="card-title"><%= campground.sdetail %> <%= campground.saddress %> </h5>
+        <p class="card-text"><%= campground.baddress %></p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item text-muted"><%= campground.Dob %></li>
-        <li class="list-group-item"><%= campground.age %></li>
-        <li class="list-group-item"><%= campground.father %></li>
-        <li class="list-group-item"><%= campground.Category %></li>
+        <li class="list-group-item text-muted"><%= campground.pdate %></li>
+        <li class="list-group-item"><%= campground.bphone %></li>
+        <li class="list-group-item"><%= campground.type %> <%= campground.engine %> </li>
+        <li class="list-group-item"><%= campground.bname %> <%= campground.mname %> </li>
+        <li class="list-group-item"><%= campground.bl %></li>
+        <li class="list-group-item"><%= campground.bcity %>, <%= campground.bstate %>-<%= campground.bcode %>  </li>
+        
       </ul>
       <div class="card-body">
-        <a class="card-link btn btn-info" href="/admin/home/<%= campground.id%>/edit"
-          >Edit</a
-        >
         <form
           class="d-inline"
-          action="/admin/home/<%= campground.id%>?_method=DELETE"
+          action="/admin/rc/<%= campground.id%>?_method=DELETE"
           method="POST"
         >
           <button class="btn btn-danger">Delete</button>
         </form>
-        <a class="card-link btn btn-success" href="/admin/home">Home</a>
+        <a class="card-link btn btn-success" href="/admin/rc">Home</a>
       </div>
       <footer class="card-footer text-muted">2 Days Ago</footer>
     </div>

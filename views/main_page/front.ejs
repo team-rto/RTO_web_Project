@@ -20,9 +20,44 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <%- include('../partials/navbar') %>
+
+
+<div id="name" class="navigation">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <span class="navbar-brand" >RTO</span>
+      <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          >
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" >About us</span>
+          </li>
+          
+        </ul>
+        </form>
+      </div>
+
+    </div>
+  </nav>
+</div>
+
 
   <body>
+    
+
     <div
       class="mx-5 my-10 jumbotron"
       style="
@@ -49,7 +84,7 @@
           <div class="row">
             <div class="col">
               <a
-                href="/home"
+                href="/admin"
                 role="button"
                 class="p-3 mb-2 btn btn-primary btn-lg btn-block rounded-pill"
                 ><i class="fas fa-user-shield"></i> ADMIN</a
@@ -74,39 +109,15 @@
 </html>
 
 <style>
-  /*
-    .frontLoginPage {
-      min-width: 100vh;
-      min-height: 100vh;
 
-      display: flex;
-      align-items: center;
-    }
-
-    .frontLoginPage .container {
-      display: flex;
-      flex-wrap: wrap;
-
-      justify-content: center;
-    }
-
-    .frontLoginPage .fas {
-      margin-right: 20px;
-      margin-left: 20px;
-    }
-
-    .frontLoginPage img {
-      height: auto;
-      width: auto;
-      margin-bottom: 90px;
-    }
-
-    .frontLoginPage .btn {
-      margin-top: 20px;
-      padding-top: 15px;
-      padding-bottom: 15px;
-      font-family: "Red Hat Display", sans-serif;
-      font-size: 1.5rem;
-    }
-    */
+.navigation .container-fluid a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600px;
+  font-size: 1.5rem;
+}
+.navigation .container-fluid span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600px;
+  font-size: 1.5rem;
+}
 </style>

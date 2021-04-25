@@ -53,10 +53,30 @@ app.get(
   })
 );
 app.get(
-  "/home",
+  "/admin",
+  catchAsync(async (req, res) => {
+    res.render("main_page/adminserv");
+  })
+);
+app.get(
+  "/admin/home",
   catchAsync(async (req, res) => {
     const campgrounds = await User.findAll();
     res.render("campgrounds/index/index", { campgrounds });
+  })
+);
+app.get(
+  "/admin/dl",
+  catchAsync(async (req, res) => {
+    const campgrounds = await Dl.findAll();
+    res.render("campgrounds/index/index1", { campgrounds });
+  })
+);
+app.get(
+  "/admin/rc",
+  catchAsync(async (req, res) => {
+    const campgrounds = await Rc.findAll();
+    res.render("campgrounds/index/index2", { campgrounds });
   })
 );
 
@@ -115,27 +135,45 @@ app.post("/user/login", async (req, res) => {
   }
 });
 
-app.get("/home/new", (req, res) => {
+app.get("/admin/home/new", (req, res) => {
   res.render("campgrounds/new/new");
 });
 app.post(
-  "/home",
+  "/admin/home",
   catchAsync(async (req, res, next) => {
     //if (!req.body.campground) throw new ExpressError('Invalid Campground Data!!', 400);
 
     const user = new User(req.body.User);
     const u = user.dataValues;
     const u1 = await User.create(u);
-    res.redirect(`/home/${u1.dataValues.id}`);
+    res.redirect(`/admin/home/${u1.dataValues.id}`);
   })
 );
 app.get(
-  "/home/:id",
+  "/admin/home/:id",
   catchAsync(async (req, res) => {
     console.log(req.params.id);
     const campground1 = await User.findAll({ where: { id: req.params.id } });
     const campground = campground1[0].dataValues;
     res.render("campgrounds/show/show", { campground });
+  })
+);
+app.get(
+  "/admin/dl/:id",
+  catchAsync(async (req, res) => {
+    console.log(req.params.id);
+    const campground1 = await Dl.findAll({ where: { id: req.params.id } });
+    const campground = campground1[0].dataValues;
+    res.render("campgrounds/show/show1", { campground });
+  })
+);
+app.get(
+  "/admin/rc/:id",
+  catchAsync(async (req, res) => {
+    console.log(req.params.id);
+    const campground1 = await Rc.findAll({ where: { id: req.params.id } });
+    const campground = campground1[0].dataValues;
+    res.render("campgrounds/show/show2", { campground });
   })
 );
 
@@ -191,7 +229,7 @@ app.post(
 );
 
 app.get(
-  "/home/:id/edit",
+  "/admin/home/:id/edit",
   catchAsync(async (req, res) => {
     const campground1 = await User.findAll({ where: { id: req.params.id } });
     const campground = campground1[0].dataValues;
@@ -200,7 +238,7 @@ app.get(
 );
 
 app.put(
-  "/home/:id",
+  "/admin/home/:id",
   catchAsync(async (req, res) => {
     const user = new User(req.body.campground);
     const u = user.dataValues;
@@ -213,12 +251,12 @@ app.put(
         },
       }
     );
-    res.redirect(`/home/${req.params.id}`);
+    res.redirect(`/admin/home/${req.params.id}`);
   })
 );
 
 app.delete(
-  "/home/:id",
+  "/admin/home/:id",
   catchAsync(async (req, res) => {
     const { id } = req.params;
     console.log(id);
@@ -227,7 +265,33 @@ app.delete(
         id: id,
       },
     });
-    res.redirect("/home");
+    res.redirect("/admin/home");
+  })
+);
+app.delete(
+  "/admin/dl/:id",
+  catchAsync(async (req, res) => {
+    const { id } = req.params;
+    console.log(id);
+    await Dl.destroy({
+      where: {
+        id: id,
+      },
+    });
+    res.redirect("/admin/dl");
+  })
+);
+app.delete(
+  "/admin/rc/:id",
+  catchAsync(async (req, res) => {
+    const { id } = req.params;
+    console.log(id);
+    await Rc.destroy({
+      where: {
+        id: id,
+      },
+    });
+    res.redirect("/admin/rc");
   })
 );
 
