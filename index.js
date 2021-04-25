@@ -34,7 +34,8 @@ app.use(express.static("public"));
 const db = require("./models");
 
 const { User } = require("./models");
-const { Client } = require("./models");
+const { Rc } = require("./models");
+const { Dl } = require("./models");
 const { Login } = require("./models");
 const config1 = require("./config1.js");
 console.log(config1);
@@ -148,16 +149,46 @@ app.get("/user/:id/dashboard", (req, res) => {
   if (!req.session.user_id) {
     res.redirect("/user/Login_Register/login");
   }
-  res.render("main_page/services");
+  const data = req.params;
+  //console.log(data);
+  res.render("main_page/services", { data });
 });
 
-app.get(`/user/:id/dashboard/dl`, (req, res) => {
-  res.render("main_page/LicenseApplication");
+app.get(`/user/:id/dashboard/dl`, async(req, res) => {
+  const id = req.params.id;
+  const data = await Login.findOne({ where: { id: id } });
+  res.render("main_page/LicenseApplication", { data });
+
 });
+app.post(
+  `/user/:id/dashboard/dl`,
+  catchAsync(async (req, res, next) => {
+    //if (!req.body.campground) throw new ExpressError('Invalid Campground Data!!', 400);
+
+    const dl = new Dl(req.body.dl);
+    const dl1 = dl.dataValues;
+    //console.log(dl1);
+    const u1 = await Dl.create(dl1);
+    res.send("Successful Submission !!!");
+  })
+);
 
 app.get(`/user/:id/dashboard/RC`, (req, res) => {
-  res.render("main_page/carRegistration");
+  const data = req.params;
+  res.render("main_page/carRegistration",{ data });
 });
+app.post(
+  `/user/:id/dashboard/RC`,
+  catchAsync(async (req, res, next) => {
+    //if (!req.body.campground) throw new ExpressError('Invalid Campground Data!!', 400);
+
+    const rc = new Rc(req.body.rc);
+    const rc1 = rc.dataValues;
+    //console.log(rc1);
+    const u1 = await Rc.create(rc1);
+    res.send("Successful Submission !!!");
+  })
+);
 
 app.get(
   "/home/:id/edit",
@@ -201,7 +232,7 @@ app.delete(
 );
 
 db.sequelize.sync().then((req) => {
-  app.listen(3001, () => {
+  app.listen(3000, () => {
     console.log("Server Running");
   });
   /*

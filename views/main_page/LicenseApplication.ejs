@@ -45,7 +45,7 @@
       </div>
     </nav>
     <div class="container">
-      <form name="myform" class="form-group">
+      <form name="myform" class="form-group" action="/user/<%= data.id %>/dashboard/dl" method="POST" novalidate class="validatedForm">
         <!-- <h2 style="text-align: center; font-weight: bold; font-size: 35px">
           License Registration
         </h2> -->
@@ -59,11 +59,17 @@
         <div class="row jumbotron">
           <div class="col-md-6">
             <label for="inputname">First name</label>
-            <input type="text" class="form-control" placeholder="First name" />
+            <input type="text" class="form-control" placeholder="First name" 
+            id="fname"
+            name="dl[fname]"
+            required/>
           </div>
           <div class="col-md-6">
             <label for="inputname">Last name</label>
-            <input type="text" class="form-control" placeholder="Last name" />
+            <input type="text" class="form-control" placeholder="Last name" 
+            id="lname"
+            name="dl[lname]"
+            required/>
           </div>
           <div class="col-md-6" style="margin-top: 20px">
             <label for="email">Email</label>
@@ -73,7 +79,12 @@
             <input
               type="email"
               class="form-control"
-              placeholder="Your email id"
+              placeholder="<%= data.email %>"
+              id="email"
+            name="dl[email]"
+            value="<%= data.email %>"
+            readonly
+            required
             />
           </div>
           <div class="col-md-6" style="margin-top: 20px">
@@ -84,28 +95,39 @@
             <input
               type="Password"
               class="form-control"
-              placeholder="Temporary Password"
+              placeholder="Password"
+              id="password"
+              name="dl[password]"
+              value="<%= data.password %>"
+              readonly
             />
           </div>
           <div class="col-md-12" style="margin-top: 30px">
             <label for="gender">Select your Gender :</label>
             <label class="checkbox-inline"
-              ><input type="checkbox" value="" />Male</label
+              ><input type="checkbox" value="Male"  id="gender"
+              name="dl[gender]"/>Male</label
             >
             <label class="checkbox-inline"
-              ><input type="checkbox" value="" />Female</label
+              ><input type="checkbox" value="Female" id="gender"
+              name="dl[gender]" />Female</label
             >
             <label class="checkbox-inline"
-              ><input type="checkbox" value="" />Other</label
+              ><input type="checkbox" value="Other" id="gender"
+              name="dl[gender]"/>Other</label
             >
           </div>
           <div class="col-md-6" style="margin-top: 30px">
             <label for="DOB">Select your Date of Birth :</label>
-            <input type="date" name="date" />
+            <input type="date"  id="date"
+            name="dl[date]"
+            required />
           </div>
           <div class="col md-12">
             <label for="sel1">Select your Blood Group :</label>
-            <select class="form-control" id="sel1">
+            <select class="form-control" id="group"
+            name="dl[group]"
+            required>
               <option>B+</option>
               <option>B-</option>
               <option>A+</option>
@@ -122,6 +144,9 @@
               type="text"
               class="form-control"
               placeholder="Enter your contact no."
+              id="phone"
+              name="dl[phone]"
+              required
             />
           </div>
           <div class="col-md-6" style="margin-top: 20px">
@@ -130,6 +155,9 @@
               type="text"
               class="form-control"
               placeholder="Landline / Alternate contact"
+              id="contact"
+              name="dl[contact]"
+              required
             />
           </div>
           <div class="col-md-12" style="margin-top: 20px">
@@ -138,6 +166,9 @@
               type="text"
               class="form-control"
               placeholder="Enter your address here"
+              id="address"
+              name="dl[address]"
+              required
             />
           </div>
           <div class="col-md-5" style="margin-top: 20px">
@@ -146,6 +177,9 @@
               type="text"
               class="form-control"
               placeholder="Enter your city name"
+              id="city"
+              name="dl[city]"
+              required
             />
           </div>
           <div class="col-md-5" style="margin-top: 20px">
@@ -154,6 +188,9 @@
               type="text"
               class="form-control"
               placeholder="Enter your state name"
+              id="state"
+              name="dl[state]"
+              required
             />
           </div>
           <div class="col-md-2" style="margin-top: 20px">
@@ -162,6 +199,9 @@
               type="text"
               class="form-control"
               placeholder="Enter your zip code"
+              id="zip"
+              name="dl[zip]"
+              required
             />
           </div>
           <div class="col-md-12" style="text-align: center; margin-top: 20px">
