@@ -135,7 +135,7 @@ app.get(
     console.log(req.params.id);
     const campground1 = await User.findAll({ where: { id: req.params.id } });
     const campground = campground1[0].dataValues;
-    res.render("campgrounds/show", { campground });
+    res.render("campgrounds/show/show", { campground });
   })
 );
 
@@ -195,7 +195,7 @@ app.get(
   catchAsync(async (req, res) => {
     const campground1 = await User.findAll({ where: { id: req.params.id } });
     const campground = campground1[0].dataValues;
-    res.render("campgrounds/edit", { campground });
+    res.render("campgrounds/edit/edit", { campground });
   })
 );
 
