@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplate')%>
 <div id="" class="new">
-  <div class="row">
-    <h1 class="text-center">New Campground</h1>
+  <h1 class="text-center display-3">New Data</h1>
+  <div class="row jumbotron">
     <div class="col-6 offset-3">
       <form action="/home" method="POST" novalidate class="validatedForm">
         <div class="mb-3">
@@ -77,12 +77,12 @@
           <div class="valid-feedback">Looks Good!!</div>
         </div>
         <div class="mb-3">
-          <button class="btn btn-success btn-lg btn-block">
-            Add Campground
-          </button>
+          <button class="btn btn-primary btn-lg btn-block">Submit</button>
         </div>
       </form>
-      <a href="/home">All Campgrounds</a>
+      <button class="btn btn-block btn-success">
+        <a href="/home">All User Data</a>
+      </button>
     </div>
   </div>
 </div>
