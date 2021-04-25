@@ -1,6 +1,9 @@
-var ai = require('applicationinsights')
-ai.setup(process.env.APPLICATIONINSIGHTSKEY || 'your_instrumentation_key').start()
-
+/*
+var ai = require("applicationinsights");
+ai.setup(
+  process.env.APPLICATIONINSIGHTSKEY || "your_instrumentation_key"
+).start();
+*/
 
 const express = require("express");
 const path = require("path");
@@ -16,7 +19,7 @@ const session = require("express-session");
 
 const app = express();
 
-app.set('etag', false)
+app.set("etag", false);
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
@@ -33,7 +36,7 @@ const db = require("./models");
 const { User } = require("./models");
 const { Client } = require("./models");
 const { Login } = require("./models");
-const config1 = require('./config1.js')
+const config1 = require("./config1.js");
 console.log(config1);
 
 // const db = mysql.createConnection({
@@ -191,17 +194,19 @@ app.delete(
     await User.destroy({
       where: {
         id: id,
-      }
+      },
     });
     res.redirect("/home");
   })
 );
 
-//db.sequelize.sync().then((req) => {
-  // app.listen(3001, () => {
-  //   console.log("Server Running");
-  // });
-  const server = app.listen(config1.server.port, () => {
-    console.log(`Sticker server running on port ${server.address().port}`)
-  })
-//});
+db.sequelize.sync().then((req) => {
+  app.listen(3001, () => {
+    console.log("Server Running");
+  });
+  /*
+const server = app.listen(config1.server.port, () => {
+  console.log(`Sticker server running on port ${server.address().port}`);
+});
+*/
+});

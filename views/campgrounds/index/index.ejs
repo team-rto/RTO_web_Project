@@ -1,55 +1,35 @@
 <% layout('layouts/boilerplate')%>
-<div class="index"></div>
-<h1>All Users!!</h1>
-<div>
-  <a href="/home/new">Add New User</a>
+<div class="display-3">
+  All Users
 </div>
 
-<% for (let campground of campgrounds) {%>
-<div class="card mb-3">
-  <div class="row">
-    <div class="col-md-4">
+</div>
+
+<div
+  class="justify-content-center jumbotron d-inline-flex align-items-center flex-md-wrap"
+>
+  <% for (let campground of campgrounds) {%>
+  <div class="p-3 m-1 text-center card border-info">
+    <img class="card-img-top" src="..." alt="Card image cap" />
+
+    <div class="card-body">
       <h1><%= campground.Name %></h1>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><%= campground.Dob %></h5>
-        <p class="card-text"><%= campground.Category %></p>
-        <p class="card-text">
-          <small class="text-muted"><%= campground.age %> </small>
-        </p>
-        <a class="btn btn-primary btn-info" href="/home/<%= campground.id %> "
-          >View <%= campground.Name %>
-        </a>
-      </div>
+      <h5 class="card-title"><%= campground.Dob %></h5>
+      <p class="card-text"><%= campground.Category %></p>
+      <p class="card-text">
+        <small class="text-muted"><%= campground.age %> </small>
+      </p>
+      <a href="/home/<%= campground.id %>" class="btn btn-info btn-lg">
+        View <%= campground.Name %>
+      </a>
     </div>
   </div>
+  <% } %>
+  <a
+    href="/home/new"
+    class="p-2 mt-5 btn btn-outline-primary btn-block"
+    style="font-size: 25px"
+  >
+    Add New User</a
+  >
 </div>
-</div>
-<% } %>
-
-<style>
-  .index .card {
-    margin-top: 5rem;
-    margin-bottom: 10rem;
-  }
-  .index h5 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-  .index p {
-    font-family: "Roboto", sans-serif;
-    font-size: 1.25rem;
-  }
-  .index .card h1 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 2rem;
-  }
-
-  .index h1 {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 4rem;
-    font-weight: 800;
-  }
-</style>
