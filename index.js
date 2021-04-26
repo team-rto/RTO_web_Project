@@ -161,7 +161,7 @@ app.get(
 app.get(
   "/admin/dl/:id",
   catchAsync(async (req, res) => {
-    console.log(req.params.id);
+    //console.log(req.params.id);
     const campground1 = await Dl.findAll({ where: { id: req.params.id } });
     const campground = campground1[0].dataValues;
     res.render("campgrounds/show/show1", { campground });
@@ -202,14 +202,22 @@ app.post(
   `/user/:id/dashboard/dl`,
   catchAsync(async (req, res, next) => {
     //if (!req.body.campground) throw new ExpressError('Invalid Campground Data!!', 400);
-
+    const id =req.params.id;
     const dl = new Dl(req.body.dl);
     const dl1 = dl.dataValues;
-    //console.log(dl1);
+    //console.log(id);
     const u1 = await Dl.create(dl1);
-    res.send("Successful Submission !!!");
+    res.redirect(`/user/${id}/dashboard/dl/display/${u1.id}`);
   })
 );
+app.get(`/user/:id/dashboard/dl/display/:dlid`, async(req, res) => {
+  const id = req.params.dlid;
+  const info = req.params;
+  //console.log(info);
+  const data1 = await Dl.findAll({ where: { id: id } });
+    const data = data1[0].dataValues;
+    res.render("dlcard", { data, info });
+})
 
 app.get(`/user/:id/dashboard/RC`, (req, res) => {
   const data = req.params;
