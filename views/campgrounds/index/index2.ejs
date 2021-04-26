@@ -1,28 +1,32 @@
 <% layout('layouts/boilerplate')%>
-<div class="display-3">
-  All Users Applied For RC
-</div>
+<div class="display-3">All Users Applied For RC</div>
 
-<div
-  class="justify-content-center jumbotron d-inline-flex align-items-center flex-md-wrap"
->
+<div class="row">
   <% for (let campground of campgrounds) {%>
-  <div class="p-3 m-1 text-center card border-info">
-    <img class="card-img-top" src="https://picsum.photos/200" alt="Card image cap" />
+  <div class="col-4">
+    <div class="p-3 m-1 text-center card border-info">
+      <img
+        class="card-img-top"
+        src="https://picsum.photos/200"
+        alt="Card image cap"
+      />
 
-    <div class="card-body">
-      <h1><%= campground.fname %> <%= campground.lname %> </h1>
-      <h5 class="card-title"><%= campground.pdate %></h5>
-      <p class="card-text"><%= campground.mname %></p>
-      <p class="card-text"><%= campground.bl %></p>
-      <p class="card-text">
-        <small class="text-muted"><%= campground.bphone %> </small>
-      </p>
-      <a href="/admin/rc/<%= campground.id %>" class="btn btn-info btn-lg rounded-pill">
-        View <%= campground.fname %> <%= campground.lname %>
-      </a>
+      <div class="card-body">
+        <h1><%= campground.fname %> <%= campground.lname %></h1>
+        <h5 class="card-title"><%= campground.pdate %></h5>
+        <p class="card-text"><%= campground.mname %></p>
+        <p class="card-text"><%= campground.bl %></p>
+        <p class="card-text">
+          <small class="text-muted"><%= campground.bphone %> </small>
+        </p>
+        <a
+          href="/admin/rc/<%= campground.id %>"
+          class="btn btn-info btn-lg rounded-pill"
+        >
+          View <%= campground.fname %> <%= campground.lname %>
+        </a>
+      </div>
     </div>
   </div>
   <% } %>
-  
 </div>
