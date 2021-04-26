@@ -16,36 +16,31 @@
     />
   </head>
   <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">RTO</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                                                                               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="/user/<%= data.id %>/dashboard">Home</a>
-            </li>
-          </ul>
-          </form>
-        </div>
-        <form action="/user/logout" method="POST">
-          <button class="btn btn-outline-danger btn-lg" type="submit">
-            Logout </button>
-        </form>
+    <% layout('layouts/boilerplateUser')%>
 
-      </div>
-    </nav>
     <div class="container">
-      <form name="myform" class="form-group" action="/user/<%= data.id %>/dashboard/dl" method="POST" novalidate class="validatedForm">
+      <form
+        name="myform"
+        class="form-group"
+        action="/user/<%= data.id %>/dashboard/dl"
+        method="POST"
+        novalidate
+        class="validatedForm"
+      >
         <!-- <h2 style="text-align: center; font-weight: bold; font-size: 35px">
           License Registration
         </h2> -->
 
-        <div class="parent" style = "display: flex; justify-content: center; margin-top: 10px; margin-bottom: 10px;">
-          <h2 class="badge badge-pill badge-dark" style = "font-size: 3.5rem">
+        <div
+          class="parent"
+          style="
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+          "
+        >
+          <h2 class="badge badge-pill badge-dark" style="font-size: 3.5rem">
             License Registration
           </h2>
         </div>
@@ -53,17 +48,25 @@
         <div class="row jumbotron">
           <div class="col-md-6">
             <label for="inputname">First name</label>
-            <input type="text" class="form-control" placeholder="First name" 
-            id="fname"
-            name="dl[fname]"
-            required/>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="First name"
+              id="fname"
+              name="dl[fname]"
+              required
+            />
           </div>
           <div class="col-md-6">
             <label for="inputname">Last name</label>
-            <input type="text" class="form-control" placeholder="Last name" 
-            id="lname"
-            name="dl[lname]"
-            required/>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Last name"
+              id="lname"
+              name="dl[lname]"
+              required
+            />
           </div>
           <div class="col-md-6" style="margin-top: 20px">
             <label for="email">Email</label>
@@ -75,10 +78,10 @@
               class="form-control"
               placeholder="<%= data.email %>"
               id="email"
-            name="dl[email]"
-            value="<%= data.email %>"
-            readonly
-            required
+              name="dl[email]"
+              value="<%= data.email %>"
+              readonly
+              required
             />
           </div>
           <div class="col-md-6" style="margin-top: 20px">
@@ -99,29 +102,37 @@
           <div class="col-md-12" style="margin-top: 30px">
             <label for="gender">Select your Gender :</label>
             <label class="checkbox-inline"
-              ><input type="checkbox" value="Male"  id="gender"
-              name="dl[gender]"/>Male</label
+              ><input
+                type="checkbox"
+                value="Male"
+                id="gender"
+                name="dl[gender]"
+              />Male</label
             >
             <label class="checkbox-inline"
-              ><input type="checkbox" value="Female" id="gender"
-              name="dl[gender]" />Female</label
+              ><input
+                type="checkbox"
+                value="Female"
+                id="gender"
+                name="dl[gender]"
+              />Female</label
             >
             <label class="checkbox-inline"
-              ><input type="checkbox" value="Other" id="gender"
-              name="dl[gender]"/>Other</label
+              ><input
+                type="checkbox"
+                value="Other"
+                id="gender"
+                name="dl[gender]"
+              />Other</label
             >
           </div>
           <div class="col-md-6" style="margin-top: 30px">
             <label for="DOB">Select your Date of Birth :</label>
-            <input type="date"  id="date"
-            name="dl[date]"
-            required />
+            <input type="date" id="date" name="dl[date]" required />
           </div>
           <div class="col md-12">
             <label for="sel1">Select your Blood Group :</label>
-            <select class="form-control" id="group"
-            name="dl[group]"
-            required>
+            <select class="form-control" id="group" name="dl[group]" required>
               <option>B+</option>
               <option>B-</option>
               <option>A+</option>
@@ -199,7 +210,13 @@
             />
           </div>
           <div class="col-md-12" style="text-align: center; margin-top: 20px">
-            <button type="submit" class="btn btn-primary btn-block" style = "font-size: 25px">Submit</button>
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              style="font-size: 25px"
+            >
+              Submit
+            </button>
           </div>
         </div>
       </form>
@@ -222,14 +239,11 @@
       crossorigin="anonymous"
     ></script>
   </body>
-
-  <%- include('../partials/footer') %>
 </html>
 
-
 <style>
-label {
-  font-size: 18px;
-  font-style: monospace;
-}
+  label {
+    font-size: 18px;
+    font-style: monospace;
+  }
 </style>

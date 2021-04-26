@@ -16,33 +16,27 @@
     />
   </head>
   <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">RTO</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                                                                               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="/user/<%= data.id %>/dashboard">Home</a>
-            </li>
-          </ul>
-          </form>
-        </div>
-        <form action="/user/logout" method="POST">
-          <button class="btn btn-outline-danger btn-lg" type="submit">
-            Logout </button>
-        </form>
-
-      </div>
-    </nav>
+    <% layout('layouts/boilerplateUser')%>
 
     <div class="container">
-      <form name="myform" class="form-group" action="/user/<%= data.id %>/dashboard/RC" method="POST" novalidate class="validatedForm">
-        <div class="parent" style = "display: flex; justify-content: center; margin-top: 10px; margin-bottom: 10px;">
-          <h2 class="badge badge-pill badge-dark" style = "font-size: 3.5rem">
+      <form
+        name="myform"
+        class="form-group"
+        action="/user/<%= data.id %>/dashboard/RC"
+        method="POST"
+        novalidate
+        class="validatedForm"
+      >
+        <div
+          class="parent"
+          style="
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+          "
+        >
+          <h2 class="badge badge-pill badge-dark" style="font-size: 3.5rem">
             Vehicle Registration
           </h2>
         </div>
@@ -50,40 +44,70 @@
         <div class="row jumbotron">
           <div class="col-md-6">
             <label for="inputname">Buyer's First name</label>
-            <input type="text" class="form-control" placeholder="First name"  id="fname"
-            name="rc[fname]"
-            required />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="First name"
+              id="fname"
+              name="rc[fname]"
+              required
+            />
           </div>
           <div class="col-md-6">
             <label for="inputname">Buyer's Last name</label>
-            <input type="text" class="form-control" placeholder="Last name" id="lname"
-            name="rc[lname]"
-            required />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Last name"
+              id="lname"
+              name="rc[lname]"
+              required
+            />
           </div>
           <div class="col-md-12" style="margin-top: 30px">
             <label for="type of vehicle">Select the type of vehicle :</label>
             <label class="checkbox-inline"
-              ><input type="checkbox"   id="type" value="2 Wheeler"
-              name="rc[type]"/>2 Wheeler
+              ><input
+                type="checkbox"
+                id="type"
+                value="2 Wheeler"
+                name="rc[type]"
+              />2 Wheeler
             </label>
             <label class="checkbox-inline"
-              ><input type="checkbox"   id="type2" value="3 Wheeler"
-              name="rc[type]" />3 Wheeler
+              ><input
+                type="checkbox"
+                id="type2"
+                value="3 Wheeler"
+                name="rc[type]"
+              />3 Wheeler
             </label>
             <label class="checkbox-inline"
-              ><input type="checkbox" id="type3" value="4 Wheeler"
-              name="rc[type]" />4 Wheeler
+              ><input
+                type="checkbox"
+                id="type3"
+                value="4 Wheeler"
+                name="rc[type]"
+              />4 Wheeler
             </label>
             <label class="checkbox-inline"
-              ><input type="checkbox"   id="type4" value="5 or more Wheeler"
-              name="rc[type]"/>5 or more
+              ><input
+                type="checkbox"
+                id="type4"
+                value="5 or more Wheeler"
+                name="rc[type]"
+              />5 or more
             </label>
           </div>
           <div class="col md-12" style="margin-top: 20px">
             <label for="eng">Select Engine type of the vehicle :</label>
-            <select class="form-control" id="sel1"  id="engine"
-            name="rc[engine]"
-            required>
+            <select
+              class="form-control"
+              id="sel1"
+              id="engine"
+              name="rc[engine]"
+              required
+            >
               <option>BS-4</option>
               <option>BS-5</option>
               <option>BS-6</option>
@@ -91,9 +115,13 @@
           </div>
           <div class="col md-12" style="margin-top: 20px">
             <label for="bname">Select Brand name of the vehicle :</label>
-            <select class="form-control" id="sel1" id="bname"
-            name="rc[bname]"
-            required>
+            <select
+              class="form-control"
+              id="sel1"
+              id="bname"
+              name="rc[bname]"
+              required
+            >
               <option>Tata Motors</option>
               <option>Maruti Suzuki</option>
               <option>Hyundai</option>
@@ -142,9 +170,7 @@
           </div>
           <div class="col-md-6" style="margin-top: 30px">
             <label for="DOB">Select the Date of Purchase:</label>
-            <input type="date" id="pdate"
-            name="rc[pdate]"
-            required />
+            <input type="date" id="pdate" name="rc[pdate]" required />
           </div>
           <div class="col-md-6" style="margin-top: 20px">
             <label for="ph1">Buyer's License number</label>
@@ -224,7 +250,13 @@
             />
           </div>
           <div class="col-md-12" style="text-align: center; margin-top: 20px">
-            <button type="submit" class="btn btn-primary btn-block" style = "font-size: 25px">Submit</button>
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              style="font-size: 25px"
+            >
+              Submit
+            </button>
           </div>
         </div>
       </form>
@@ -247,12 +279,11 @@
       crossorigin="anonymous"
     ></script>
   </body>
-  <%- include('../partials/footer') %>
 </html>
 
 <style>
-label {
-  font-size: 18px;
-  font-style: monospace;
-}
+  label {
+    font-size: 18px;
+    font-style: monospace;
+  }
 </style>
