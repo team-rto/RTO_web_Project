@@ -22,10 +22,12 @@
         <div class="card-body">
           <form
             class="d-inline"
-            action="/admin/dl/<%= campground.id%>?_method=DELETE"
             method="POST"
-          ></form>
+            action="/admin/dl/<%= campground.id%>?_method=DELETE"           
+          >
           <button class="btn btn-danger">Delete</button>
+        </form>
+        
           <a class="card-link btn btn-success" href="/admin/dl">Home</a>
         </div>
         <footer class="card-footer text-muted">2 Days Ago</footer>

@@ -31,11 +31,13 @@
     "fs": "0.0.1-security",
     "https": "^1.0.0",
     "joi": "^17.4.0",
+    "method": "^2.0.0",
     "method-override": "^3.0.0",
     "mongoose": "^5.11.19",
     "mysql2": "^2.2.5",
     "node": "^16.0.0",
     "nvm": "0.0.4",
+    "override": "^0.0.1",
     "path": "^0.12.7",
     "sequelize": "^6.6.2",
     "tedious": "^11.0.7"

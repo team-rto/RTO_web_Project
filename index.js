@@ -280,7 +280,7 @@ app.delete(
     await User.destroy({
       where: {
         id: id,
-      },
+      }
     });
     res.redirect("/admin/home");
   })
@@ -306,7 +306,7 @@ app.delete(
     await Rc.destroy({
       where: {
         id: id,
-      },
+      }
     });
     res.redirect("/admin/rc");
   })
