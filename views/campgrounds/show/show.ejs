@@ -3,7 +3,7 @@
 <div class="show"></div>
 <div class="row">
   <div class="col-6 offset-3">
-    <div class="card mb-3">
+    <div class="mb-3 card">
       <h1><%= campground.Name %></h1>
       <div class="card-body">
         <h5 class="card-title"><%= campground.id %></h5>
@@ -16,22 +16,23 @@
         <li class="list-group-item"><%= campground.Category %></li>
       </ul>
       <div class="card-body">
-        <a class="card-link btn btn-info" href="/admin/home/<%= campground.id%>/edit"
+        <a
+          class="card-link btn btn-info"
+          href="/admin/home/<%= campground.id%>/edit"
           >Edit</a
         >
         <form
           class="d-inline"
           action="/admin/home/<%= campground.id%>?_method=DELETE"
           method="POST"
-        >
-          <button class="btn btn-danger">Delete</button>
-        </form>
+        ></form>
+
+        <button class="btn btn-danger">Delete</button>
         <a class="card-link btn btn-success" href="/admin/home">Home</a>
       </div>
       <footer class="card-footer text-muted">2 Days Ago</footer>
     </div>
   </div>
-</div>
 </div>
 <div class="for_spacing"></div>
 

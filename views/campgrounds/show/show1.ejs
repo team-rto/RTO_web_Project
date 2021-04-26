@@ -1,38 +1,39 @@
 <% layout('layouts/boilerplate')%>
 
-<div class="show"></div>
-<div class="row">
-  <div class="col-6 offset-3">
-    <div class="card mb-3">
-      <h1><%= campground.fname %> <%= campground.lname%></h1>
-      <div class="card-body">
-        <h5 class="card-title"><%= campground.email %></h5>
-        <p class="card-text"><%= campground.address %></p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item text-muted"><%= campground.date %></li>
-        <li class="list-group-item"><%= campground.phone %></li>
-        <li class="list-group-item"><%= campground.gender %></li>
-        <li class="list-group-item"><%= campground.group %></li>
-        <li class="list-group-item"><%= campground.city %>, <%= campground.state %>-<%= campground.zip %>  </li>
-        
-      </ul>
-      <div class="card-body">
-        <form
-          class="d-inline"
-          action="/admin/dl/<%= campground.id%>?_method=DELETE"
-          method="POST"
-        >
+<div class="new">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="card mb-3">
+        <h1><%= campground.fname %> <%= campground.lname%></h1>
+        <div class="card-body">
+          <h5 class="card-title"><%= campground.email %></h5>
+          <p class="card-text"><%= campground.address %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item text-muted"><%= campground.date %></li>
+          <li class="list-group-item"><%= campground.phone %></li>
+          <li class="list-group-item"><%= campground.gender %></li>
+          <li class="list-group-item"><%= campground.group %></li>
+          <li class="list-group-item">
+            <%= campground.city %>, <%= campground.state %>-<%= campground.zip
+            %>
+          </li>
+        </ul>
+        <div class="card-body">
+          <form
+            class="d-inline"
+            action="/admin/dl/<%= campground.id%>?_method=DELETE"
+            method="POST"
+          ></form>
           <button class="btn btn-danger">Delete</button>
-        </form>
-        <a class="card-link btn btn-success" href="/admin/dl">Home</a>
+          <a class="card-link btn btn-success" href="/admin/dl">Home</a>
+        </div>
+        <footer class="card-footer text-muted">2 Days Ago</footer>
       </div>
-      <footer class="card-footer text-muted">2 Days Ago</footer>
     </div>
   </div>
+  <div class="for_spacing"></div>
 </div>
-</div>
-<div class="for_spacing"></div>
 
 <style>
   .new .for_spacing {
