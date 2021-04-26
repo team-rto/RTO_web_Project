@@ -13,9 +13,21 @@
       </ul>
       </form>
     </div>
-    <form action="/user/logout" method="POST">
-      <button class="btn btn-danger btn-lg" type="submit">
-        Logout </button>
-    </form>
+    <div class="btn-gp dropstart">
+      <button class="btn btn-warning btn-lg dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+        Profile
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <li><button class="btn btn-lg dropdown-item" type="button">View DL </button></li>
+        <li><button class="btn btn-lg dropdown-item" type="button">View RC</button></li>
+        <li><button class="btn btn-lg dropdown-item" type="button">aise hi</button></li>
+        <li>
+          <form action="/user/logout" method="POST" >
+            <button class="dropdown-item bg-danger btn btn-lg" type="submit">
+              Logout </button>
+          </form>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
