@@ -227,14 +227,23 @@ app.post(
   `/user/:id/dashboard/RC`,
   catchAsync(async (req, res, next) => {
     //if (!req.body.campground) throw new ExpressError('Invalid Campground Data!!', 400);
-
+    const id =req.params.id;
     const rc = new Rc(req.body.rc);
     const rc1 = rc.dataValues;
     //console.log(rc1);
     const u1 = await Rc.create(rc1);
-    res.send("Successful Submission !!!");
+    //res.send("Successful Submission !!!");
+    res.redirect(`/user/${id}/dashboard/rc/display/${u1.id}`)
   })
 );
+app.get(`/user/:id/dashboard/rc/display/:rcid`, async(req, res) => {
+  const id = req.params.rcid;
+  const info = req.params;
+ // console.log(info);
+  const data1 = await Rc.findAll({ where: { id: id } });
+    const data = data1[0].dataValues;
+    res.render("rccard", { data, info });
+})
 
 app.get(
   "/admin/home/:id/edit",
