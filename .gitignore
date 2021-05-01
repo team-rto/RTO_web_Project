@@ -1,5 +1,6 @@
 # for macos
 .DS_Store
+.vscode
 /config/config.json
 <<<<<<< HEAD
 

@@ -192,17 +192,16 @@ app.get("/user/:id/dashboard", (req, res) => {
   res.render("main_page/services", { data });
 });
 
-app.get(`/user/:id/dashboard/dl`, async(req, res) => {
+app.get(`/user/:id/dashboard/dl`, async (req, res) => {
   const id = req.params.id;
   const data = await Login.findOne({ where: { id: id } });
   res.render("main_page/LicenseApplication", { data });
-
 });
 app.post(
   `/user/:id/dashboard/dl`,
   catchAsync(async (req, res, next) => {
     //if (!req.body.campground) throw new ExpressError('Invalid Campground Data!!', 400);
-    const id =req.params.id;
+    const id = req.params.id;
     const dl = new Dl(req.body.dl);
     const dl1 = dl.dataValues;
     //console.log(id);
@@ -210,40 +209,40 @@ app.post(
     res.redirect(`/user/${id}/dashboard/dl/display/${u1.id}`);
   })
 );
-app.get(`/user/:id/dashboard/dl/display/:dlid`, async(req, res) => {
+app.get(`/user/:id/dashboard/dl/display/:dlid`, async (req, res) => {
   const id = req.params.dlid;
   const info = req.params;
   //console.log(info);
   const data1 = await Dl.findAll({ where: { id: id } });
-    const data = data1[0].dataValues;
-    res.render("dlcard", { data, info });
-})
+  const data = data1[0].dataValues;
+  res.render("dlcard", { data, info });
+});
 
 app.get(`/user/:id/dashboard/RC`, (req, res) => {
   const data = req.params;
-  res.render("main_page/carRegistration",{ data });
+  res.render("main_page/carRegistration", { data });
 });
 app.post(
   `/user/:id/dashboard/RC`,
   catchAsync(async (req, res, next) => {
     //if (!req.body.campground) throw new ExpressError('Invalid Campground Data!!', 400);
-    const id =req.params.id;
+    const id = req.params.id;
     const rc = new Rc(req.body.rc);
     const rc1 = rc.dataValues;
     //console.log(rc1);
     const u1 = await Rc.create(rc1);
     //res.send("Successful Submission !!!");
-    res.redirect(`/user/${id}/dashboard/rc/display/${u1.id}`)
+    res.redirect(`/user/${id}/dashboard/rc/display/${u1.id}`);
   })
 );
-app.get(`/user/:id/dashboard/rc/display/:rcid`, async(req, res) => {
+app.get(`/user/:id/dashboard/rc/display/:rcid`, async (req, res) => {
   const id = req.params.rcid;
   const info = req.params;
- // console.log(info);
+  // console.log(info);
   const data1 = await Rc.findAll({ where: { id: id } });
-    const data = data1[0].dataValues;
-    res.render("rccard", { data, info });
-})
+  const data = data1[0].dataValues;
+  res.render("rccard", { data, info });
+});
 
 app.get(
   "/admin/home/:id/edit",
@@ -280,7 +279,7 @@ app.delete(
     await User.destroy({
       where: {
         id: id,
-      }
+      },
     });
     res.redirect("/admin/home");
   })
@@ -306,7 +305,7 @@ app.delete(
     await Rc.destroy({
       where: {
         id: id,
-      }
+      },
     });
     res.redirect("/admin/rc");
   })
