@@ -1,48 +1,49 @@
 <div class="services">
   <% layout('layouts/boilerplateUser')%>
-  <div class="container">
-    <div
-      class="flex-wrap p-4 m-4 d-flex justify-content-start align-items-center"
-    >
-      <a href="/user/<%= data.id %>/dashboard/dl">
-        <img
-          src="/dl.png"
-          width="420"
-          class="border img-thumbnail border-info"
-        />
-      </a>
-      <a href="#"
-        ><img
-          src="/dlrenewal.png"
-          width="420"
-          class="border img-thumbnail border-info"
-      /></a>
-      <a href="/user/<%= data.id %>/dashboard/RC"
-        ><img
-          src="/RC.png"
-          width="420"
-          class="border img-thumbnail border-info"
-      /></a>
-      <a href="#"
-        ><img
-          src="/renewrc.png"
-          width="420"
-          class="border img-thumbnail border-info"
-      /></a>
-      <a href="#"
-        ><img
-          src="/fintessca.png"
-          width="420"
-          class="border img-thumbnail border-info"
-      /></a>
-      <a href="#"
-        ><img
-          src="/others.png"
-          width="420"
-          class="border img-thumbnail border-info"
-      /></a>
-    </div>
+  <div
+    class=""
+    style="
+      margin-top: 100px;
+      margin-bottom: 100px;
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+      column-gap: 40px;
+      row-gap: 40px;
+    "
+  >
+    <!-- <div class="flex-wrap p-4 m-4 d-flex justify-content-start align-items-center" > -->
+    <a href="/user/<%= data.id %>/dashboard/dl">
+      <img src="/dl.png" width="420" class="border img-thumbnail border-info" />
+    </a>
+    <a href="#"
+      ><img
+        src="/dlrenewal.png"
+        width="420"
+        class="border img-thumbnail border-info"
+    /></a>
+    <a href="/user/<%= data.id %>/dashboard/RC"
+      ><img src="/RC.png" width="420" class="border img-thumbnail border-info"
+    /></a>
+    <a href="#"
+      ><img
+        src="/renewrc.png"
+        width="420"
+        class="border img-thumbnail border-info"
+    /></a>
+    <a href="#"
+      ><img
+        src="/fintessca.png"
+        width="420"
+        class="border img-thumbnail border-info"
+    /></a>
+    <a href="#"
+      ><img
+        src="/others.png"
+        width="420"
+        class="border img-thumbnail border-info"
+    /></a>
   </div>
+  <!-- </div> -->
 </div>
 
 <style>
@@ -58,6 +59,6 @@
     transition: transform 0.3s ease-in-out;
   }
   img:hover {
-    transform: scale(1.2, 1.2);
+    transform: scale(1.1, 1.1);
   }
 </style>
