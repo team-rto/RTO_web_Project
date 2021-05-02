@@ -5,238 +5,151 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous"
+        />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap"
-      rel="stylesheet"
-    />
+        href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap"
+        rel="stylesheet"
+        />
     <script
-      src="https://kit.fontawesome.com/0932b7d8ec.js"
-      crossorigin="anonymous"
-    ></script>
+        src="https://kit.fontawesome.com/0932b7d8ec.js"
+        crossorigin="anonymous"
+        ></script>
   </head>
 
 
-<div id="name" class="navigation">
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <span class="navbar-brand" >RTO</span>
-      <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          >
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <span class="nav-link" >About us</span>
-          </li>
-          
-        </ul>
-        </form>
-      </div>
-
-    </div>
-  </nav>
-</div>
-
-
-  
-<body>
-    
-<div class="my-login-page">
-  <section class="h-100">
-    <div class="container h-100">
-      <div class="row justify-content-md-center h-100">
-        <div class="card-wrapper">
-          <div class="brand">
-            <img src="https://www.pngkit.com/png/detail/334-3347027_register-icon-png-register-here-logo.png" alt="bootstrap 4 login page" />
-          </div>
-          <div class="card fat">
-            <div class="card-body">
-              <h4 class="card-title">Register</h4>
-              <form
-                action="/user"
-                method="POST"
-                class="my-login-validation"
-                novalidate=""
+  <body>
+    <div id="name" class="navigation">
+      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <span class="navbar-brand" >RTO</span>
+          <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
               >
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input
-                    id="name"
-                    type="text"
-                    class="form-control"
-                    name="Login[name]"
-                    required
-                    autofocus
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link" >About us</span>
+              </li>
+
+            </ul>
+            </form>
+          </div>
+
+        </div>
+      </nav>
+    </div>
+
+
+
+
+    <div class="container"
+         style="display: grid;
+                 grid-template-rows: 50% 50%;
+                 margin-top: 70px;
+                 margin-bottom: 200px;
+                 ">
+
+      <img
+          src="https://icon-library.com/images/6ebb56569c.png"
+          alt="logo"
+          style="max-width: 30%;
+                    justify-self: center;
+                    align-self: center;
+                    "
+          />
+      <form
+          action="/user"
+          method="POST"
+          class="jumbotron my-login-validation"
+          style="padding-top: 32px;
+                 padding-bottom: 192px;
+                 padding-right: 16px;
+                 padding-left: 16px;"
+          novalidate=""
+          >
+          <div class="form-group lead">
+            <label for="name">Name</label>
+            <input
+                id="name"
+                type="text"
+                class="form-control"
+                name="Login[name]"
+                required
+                autofocus
+                />
+            <div class="invalid-feedback">What's your name?</div>
+          </div>
+
+          <div class="form-group lead">
+            <label for="email">E-Mail Address</label>
+            <input
+                id="email"
+                type="email"
+                class="form-control"
+                name="Login[email]"
+                required
+                />
+            <div class="invalid-feedback">Your email is invalid</div>
+          </div>
+
+          <div class="form-group lead">
+            <label for="password">Password</label>
+            <input
+                id="password"
+                type="password"
+                class="form-control"
+                name="Login[password]"
+                required
+                data-eye
+                />
+            <div class="invalid-feedback">Password is required</div>
+          </div>
+
+          <div class="form-group">
+            <div class="custom-checkbox custom-control">
+              <input
+                  type="checkbox"
+                  name="agree"
+                  id="agree"
+                  class="custom-control-input"
+                  required=""
                   />
-                  <div class="invalid-feedback">What's your name?</div>
-                </div>
-
-                <div class="form-group">
-                  <label for="email">E-Mail Address</label>
-                  <input
-                    id="email"
-                    type="email"
-                    class="form-control"
-                    name="Login[email]"
-                    required
-                  />
-                  <div class="invalid-feedback">Your email is invalid</div>
-                </div>
-
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input
-                    id="password"
-                    type="password"
-                    class="form-control"
-                    name="Login[password]"
-                    required
-                    data-eye
-                  />
-                  <div class="invalid-feedback">Password is required</div>
-                </div>
-
-                <div class="form-group">
-                  <div class="custom-checkbox custom-control">
-                    <input
-                      type="checkbox"
-                      name="agree"
-                      id="agree"
-                      class="custom-control-input"
-                      required=""
-                    />
-                    <label for="agree" class="custom-control-label"
-                      >I agree to the
-                      <a href="/terms">Terms and Conditions</a></label
-                    >
-                    <div class="invalid-feedback">
-                      You must agree with our Terms and Conditions
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group m-0">
-                  <button type="submit" class="btn btn-primary btn-block">
-                    Register
-                  </button>
-                </div>
-                <div class="mt-4 text-center">
-                  Already have an account?
-                  <a href="/user/Login_Register/login">Login</a>
-                </div>
-              </form>
+              <label for="agree" class="custom-control-label lead"
+                                 >I agree to the
+                                 <a href="/terms">Terms and Conditions</a></label
+                               >
+                               <div class="invalid-feedback">
+                                 You must agree with our Terms and Conditions
+                               </div>
             </div>
           </div>
-          <div class="footer">Copyright &copy; 2017 &mdash; Your Company</div>
-        </div>
-      </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <span class="lead">Register</span>
+          </button>
+          <div class="lead mt-4 text-center">
+            Already have an account?
+            <a href="/user/Login_Register/login">Login</a>
+          </div>
+      </form>
     </div>
-  </section>
-</div>
 
-
-</body>
-<%- include('../../../partials/footer') %>
+  </body>
+  <%- include('../../../partials/footer') %>
 </html>
-
-
-<style>
-  .my-login-page {
-    background-color: #f7f9fb;
-    font-size: 14px;
-  }
-
-  .my-login-page .brand {
-    width: 90px;
-    height: 90px;
-    overflow: hidden;
-    border-radius: 50%;
-    margin: 40px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    position: relative;
-    z-index: 1;
-  }
-
-  .my-login-page .brand img {
-    width: 100%;
-  }
-
-  .my-login-page .card-wrapper {
-    width: 400px;
-  }
-
-  .my-login-page .card {
-    border-color: transparent;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  }
-
-  .my-login-page .card.fat {
-    padding: 10px;
-  }
-
-  .my-login-page .card .card-title {
-    margin-bottom: 30px;
-  }
-
-  .my-login-page .form-control {
-    border-width: 2.3px;
-  }
-
-  .my-login-page .form-group label {
-    width: 100%;
-  }
-
-  .my-login-page .btn.btn-block {
-    padding: 12px 10px;
-  }
-
-  .my-login-page .footer {
-    margin: 40px 0;
-    color: #888;
-    text-align: center;
-  }
-
-  @media screen and (max-width: 425px) {
-    .my-login-page .card-wrapper {
-      width: 90%;
-      margin: 0 auto;
-    }
-  }
-
-  @media screen and (max-width: 320px) {
-    .my-login-page .card.fat {
-      padding: 0;
-    }
-
-    .my-login-page .card.fat .card-body {
-      padding: 15px;
-    }
-  }
-  .navigation .container-fluid a {
-font-family: "Montserrat", sans-serif;
-font-weight: 600px;
-font-size: 1.5rem;
-}
-.navigation .container-fluid span {
-font-family: "Montserrat", sans-serif;
-font-weight: 600px;
-font-size: 1.5rem;
-}
-</style>
