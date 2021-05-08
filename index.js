@@ -246,6 +246,35 @@ app.get(`/user/:id/dashboard/rc/display/:rcid`, async(req, res) => {
 })
 
 app.get(
+  `/user/:id/dashboard/dl/edit`,
+  catchAsync(async (req, res) => {
+    const campground = await Dl.findAll({ where: { id: req.params.id } });
+
+    const data = campground[0].dataValues;
+    res.render("campgrounds/edit/editdl", { data });
+  })
+);
+
+app.put(
+  `/user/:id/dashboard/dl/edit`,
+  catchAsync(async (req, res) => {
+    const user = new Dl(req.body.dl);
+    const u = user.dataValues;
+    u.id = req.params.id;
+    //console.log(user);
+    const u1 = await Dl.update(
+      u,
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.redirect(`/user/${req.params.id}/dashboard/dl/display/${u.id}`);
+  })
+);
+
+app.get(
   "/admin/home/:id/edit",
   catchAsync(async (req, res) => {
     const campground1 = await User.findAll({ where: { id: req.params.id } });
@@ -261,7 +290,7 @@ app.put(
     const u = user.dataValues;
     u.id = req.params.id;
     const u1 = await User.update(
-      { ...req.body.campground },
+       u,
       {
         where: {
           id: req.params.id,
