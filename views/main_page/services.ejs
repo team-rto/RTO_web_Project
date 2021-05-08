@@ -1,47 +1,60 @@
 <div class="services">
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">RTO</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                                                                             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/user/<%= data.id %>/dashboard">Home</a>
-          </li>
-        </ul>
-        </form>
-      </div>
-      <form action="/user/logout" method="POST">
-        <button class="btn btn-danger btn-lg" type="submit">
-          Logout </button>
-      </form>
-
-    </div>
-  </nav>
-
-  <div class="container">
-    <div class="flex-wrap p-4 m-4 d-flex justify-content-start align-items-center">
-      <a href="/user/<%= data.id %>/dashboard/dl"> <img src="/dl.png" width="420" class = "border img-thumbnail border-info" > </a>
-      <a href="/user/<%= data.id %>/dashboard/dl/edit"><img src="/dlrenewal.png"  width="420" class="border img-thumbnail border-info"></a>
-      <a href="/user/<%= data.id %>/dashboard/RC"><img src="/RC.png"  width="420" class = "border img-thumbnail border-info"></a>
-      <a href="#"><img src="/renewrc.png"  width="420" class = "border img-thumbnail border-info"></a>
-      <a href="#"><img src="/fintessca.png"  width="420" class = "border img-thumbnail border-info"></a>
-      <a href="#"><img src="/others.png"  width="420" class = "border img-thumbnail border-info"></a>
-    </div>
+  <% layout('layouts/boilerplateUser')%>
+  <div
+    class=""
+    style="
+      margin-top: 100px;
+      margin-bottom: 100px;
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+      column-gap: 40px;
+      row-gap: 40px;
+    "
+  >
+    <a href="/user/<%= data.id %>/dashboard/dl">
+      <img src="/dl.png" width="420" class="border img-thumbnail border-info" />
+    </a>
+    <a href="/user/<%= data.id %>/dashboard/dl/edit">
+      <img
+        src="/dlrenewal.png"
+        width="420"
+        class="border img-thumbnail border-info"
+    /></a>
+    <a href="/user/<%= data.id %>/dashboard/RC"
+      ><img src="/RC.png" width="420" class="border img-thumbnail border-info"
+    /></a>
+    <a href="#"
+      ><img
+        src="/renewrc.png"
+        width="420"
+        class="border img-thumbnail border-info"
+    /></a>
+    <a href="#"
+      ><img
+        src="/fintessca.png"
+        width="420"
+        class="border img-thumbnail border-info"
+    /></a>
+    <a href="#"
+      ><img
+        src="/others.png"
+        width="420"
+        class="border img-thumbnail border-info"
+    /></a>
   </div>
-  <%- include('../partials/footer') %>
+  <!-- </div> -->
 </div>
 
 <style>
-.container .flex-wrap a {
-  margin: 30px;
-}
-      .services {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 600px;
-        font-size: 1.5rem;
-      }
+  .services {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600px;
+    font-size: 1.5rem;
+  }
+  .services img {
+    transition: transform 0.3s ease-in-out;
+  }
+  .services img:hover {
+    transform: scale(1.1, 1.1);
+  }
 </style>

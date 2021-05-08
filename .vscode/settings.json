@@ -1,8 +1,0 @@
-{
-    "appService.deploySubpath": ".",
-    "appService.zipIgnorePattern": [
-        "node_modules{,/**}",
-        ".vscode{,/**}"
-    ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/dc983a98-e1ca-48f2-83be-5300a1fb9508/resourceGroups/Ashu/providers/Microsoft.Web/sites/RTO-App"
-}

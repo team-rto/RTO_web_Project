@@ -21,103 +21,73 @@
     ></script>
   </head>
 
+  <body
+    style="
+      background-image: url(https://images7.alphacoders.com/436/436429.jpg);
+      /* Full height */
+      height: 100%;
 
-<div id="name" class="navigation">
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <span class="navbar-brand" >RTO</span>
-      <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          >
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <span class="nav-link" >About us</span>
-          </li>
-          
-        </ul>
-        </form>
-      </div>
-
-    </div>
-  </nav>
-</div>
-
-
-  <body>
-    
-
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    "
+  >
     <div
-      class="mx-5 my-10 jumbotron"
+      class="mx-5 my-10"
       style="
-        /* background-image: url(https://ak.picdn.net/shutterstock/videos/28237084/thumb/9.jpg); */
         height: 100%;
-        background-position: center;
+        /* background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        background-size: cover; */
+        margin-top: 200px;
+        margin-bottom: 200px;
+
+        /* Grid system */
+        display: grid;
+        grid-template-columns: 70% 30%;
+        grid-template-rows: 100%;
       "
     >
-      <div class="row align-items-center">
-        <div class="col-9">
-          <img
-            src="https://st1.bgr.in/wp-content/uploads/2021/03/DL-Online.jpg"
-            alt=""
-            class="img-fluid img-thumbnail"
-            style="/* opacity: 0.5 */"
-            ;
-          />
-        </div>
-        <div class="col">
-          <div class="row">
-            <div class="col">
-              <a
-                href="/admin"
-                role="button"
-                class="p-3 mb-2 btn btn-primary btn-lg btn-block rounded-pill"
-                ><i class="fas fa-user-shield"></i> ADMIN</a
-              >
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <a
-                href="/user/Login_Register/login"
-                role="button"
-                class="p-3 mt-2 btn btn-secondary btn-outline-secondary btn-lg btn-block rounded-pill"
-                ><i class="fas fa-users"></i> USER</a
-              >
-            </div>
-          </div>
-        </div>
+      <img
+        src="https://st1.bgr.in/wp-content/uploads/2021/03/DL-Online.jpg"
+        alt=""
+        class="img-fluid img-thumbnail"
+        style="align-self: center; justify-self: center; opacity: 0.8"
+        ;
+      />
+      <div
+        class="toClick"
+        style="
+          padding-left: 4%;
+          padding-right: 4%;
+          background-color: rgba(0, 0, 0, 0.6); /* for opacity */
+          display: grid;
+          grid-template-rows: 60% 20% 20%;
+        "
+      >
+        <img
+          src="https://pbs.twimg.com/profile_images/1137634760879034369/BAJJJ13E_400x400.jpg"
+          alt=""
+          style="justify-self: center; align-self: center"
+        />
+        <a
+          href="/admin"
+          role="button"
+          class="p-3 btn btn-primary btn-lg btn-block"
+          style="justify-self: center; align-self: end"
+          ;
+          ><i class="fas fa-user-shield"></i> ADMIN</a
+        >
+        <a
+          href="/user/Login_Register/login"
+          role="button"
+          class="p-3 btn btn-secondary btn-outline-light btn-lg btn-block"
+          style="justify-self: center; align-self: start"
+          ;
+          ><i class="fas fa-users"></i> USER</a
+        >
       </div>
     </div>
   </body>
-  <%- include('../partials/footer') %>
 </html>
-
-<style>
-
-.navigation .container-fluid a {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600px;
-  font-size: 1.5rem;
-}
-.navigation .container-fluid span {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600px;
-  font-size: 1.5rem;
-}
-</style>

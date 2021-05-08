@@ -13,28 +13,29 @@
     <title>Info</title>
   </head>
   <body>
-    <div class="container mt-5" >
-      <div class="card bg-warning text-black">
-        <div
-          class="row justify-content-around align-items-center mb-4"
-          ;
-        >
-          <div class="col order-1">
+    <div class="container mt-5">
+      <a href="/user/<%= info.id %>/dashboard" class="btn btn-danger btn-lg"
+        ><i class="fas fa-long-arrow-alt-left"></i>Back to Dashboard</a
+      >
+      <div class="text-center display-1">Preview</div>
+      <div class="text-black card bg-warning">
+        <div class="mb-4 row justify-content-around align-items-center" ;>
+          <div class="order-1 col">
             <img
-              class="img-fluid p-2"
+              class="p-2 img-fluid"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/1200px-Emblem_of_India.svg.png"
               alt="Card image"
               style="width: 50%"
             />
           </div>
           <div
-            class="col-8 bg-danger text-warning text-center m-2 p-2 display-1 order-2"
+            class="order-2 p-2 m-2 text-center col-8 bg-danger text-warning display-3 rounded-pill"
           >
             Driver License
           </div>
-          <div class="col order-3">
+          <div class="order-3 col">
             <img
-              class="img-fluid p-2 justify-self-end"
+              class="p-2 img-fluid justify-self-end"
               src="https://pbs.twimg.com/profile_images/1137634760879034369/BAJJJ13E_400x400.jpg"
               alt="Card image"
               style="width: 80%"
@@ -52,50 +53,56 @@
           </div>
 
           <div class="col-6">
-            <div class="data m-3 p-1">
-              <div class="card-title display-3 h3">DLN: DL10XXXXXX0<%= data.id %> </div>
-              <div class="card-title display-5 h3"><strong><%= data.fname %> <%= data.lname %>  </strong></div>
+            <div class="p-1 m-3 data">
+              <div class="card-title display-5">
+                DLN: DL10XXXXXX0<%= data.id %>
+              </div>
+              <div class="card-title display-5 h3">
+                <strong><%= data.fname %> <%= data.lname %> </strong>
+              </div>
 
               <div class="row">
                 <div class="col">
-                  <div class="h5">DOB: <%= data.date %> </div>
+                  <div class="h5">DOB: <%= data.date %></div>
                 </div>
                 <div class="col">
-                  <div class="h5">Blood Group: <%= data.group %> </div>
+                  <div class="h5">Blood Group: <%= data.group %></div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col">
-                  <div class="h5">Sex: <%= data.gender %> </div>
+                  <div class="h5">Sex: <%= data.gender %></div>
                 </div>
                 <div class="col">
-                  <div class="h5">Contact: <%= data.phone %> </div>
+                  <div class="h5">Contact: <%= data.phone %></div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col">
-                  <div class="h5">Address: <%= data.address %> </div>
+                  <div class="h5">Address: <%= data.address %></div>
                 </div>
                 <div class="col">
-                  <div class="h5"><%= data.city %> <%= data.state %>-<%= data.zip %>  </div>
+                  <div class="h5">
+                    <%= data.city %> <%= data.state %>-<%= data.zip %>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-2 mt-5">
+          <div class="mt-5 col-2">
             <img
-              class="rounded float-left p-2 mb-2"
+              class="float-left p-2 mb-2 rounded"
               src="https://www.startupblog.com/wp-content/uploads/2017/05/signature-523237_960_720.jpg"
               alt="Card image"
               style="width: 90%"
             />
-            <div class="lead text-center text-muted">
+            <div class="text-center lead text-muted">
               <strong>Signature/thumb</strong>
             </div>
             <img
-              class="rounded float-left p-2"
+              class="float-left p-2 rounded"
               src="https://cdn2.vectorstock.com/i/1000x1000/81/76/sim-card-chip-isolated-on-white-background-vector-31138176.jpg"
               alt="Card image"
               style="width: 90%"
@@ -105,8 +112,5 @@
         <!-- for footer -->
       </div>
     </div>
-    <div><a type="button" href="/user/<%= info.id %>/dashboard" class="btn btn-info">Back to Dashboard</a></div>
-    <%- include('./partials/footer') %> 
   </body>
 </html>
-
