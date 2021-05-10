@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
       crossorigin="anonymous"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -21,72 +21,75 @@
     ></script>
   </head>
 
-  <body
-    style="
-      background-image: url(https://images7.alphacoders.com/436/436429.jpg);
-      /* Full height */
-      height: 100%;
-
-      /* Center and scale the image nicely */
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    "
-  >
+  <body>
     <div
-      class="mx-5 my-10"
       style="
-        height: 100%;
-        /* background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover; */
-        margin-top: 200px;
-        margin-bottom: 200px;
+        background-image: url(https://images7.alphacoders.com/436/436429.jpg);
+        /* Full height */
+        height: 100vh;
+        width: 100vw;
 
-        /* Grid system */
-        display: grid;
-        grid-template-columns: 70% 30%;
-        grid-template-rows: 100%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
       "
     >
-      <img
-        src="https://st1.bgr.in/wp-content/uploads/2021/03/DL-Online.jpg"
-        alt=""
-        class="img-fluid img-thumbnail"
-        style="align-self: center; justify-self: center; opacity: 0.8"
-        ;
-      />
       <div
-        class="toClick"
+        class="mx-5 my-10"
         style="
-          padding-left: 4%;
-          padding-right: 4%;
-          background-color: rgba(0, 0, 0, 0.6); /* for opacity */
+          height: 100%;
+          /* background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; */
+          /* margin-top: 200px; */
+          margin-bottom: 200px;
+
+          /* Grid system */
           display: grid;
-          grid-template-rows: 60% 20% 20%;
+          grid-template-columns: 70% 30%;
+          grid-template-rows: 100%;
         "
       >
         <img
-          src="https://pbs.twimg.com/profile_images/1137634760879034369/BAJJJ13E_400x400.jpg"
+          src="https://st1.bgr.in/wp-content/uploads/2021/03/DL-Online.jpg"
           alt=""
-          style="justify-self: center; align-self: center"
+          class="img-fluid img-thumbnail"
+          style="align-self: center; justify-self: center; opacity: 0.8"
+          ;
         />
-        <a
-          href="/admin"
-          role="button"
-          class="p-3 btn btn-primary btn-lg btn-block"
-          style="justify-self: center; align-self: end"
-          ;
-          ><i class="fas fa-user-shield"></i> ADMIN</a
+        <div
+          class="toClick"
+          style="
+            padding-left: 4%;
+            padding-right: 4%;
+            background-color: rgba(0, 0, 0, 0.6); /* for opacity */
+            display: grid;
+            grid-template-rows: 60% 20% 20%;
+          "
         >
-        <a
-          href="/user/Login_Register/login"
-          role="button"
-          class="p-3 btn btn-secondary btn-outline-light btn-lg btn-block"
-          style="justify-self: center; align-self: start"
-          ;
-          ><i class="fas fa-users"></i> USER</a
-        >
+          <img
+            src="https://pbs.twimg.com/profile_images/1137634760879034369/BAJJJ13E_400x400.jpg"
+            alt=""
+            style="justify-self: center; align-self: center"
+          />
+          <a
+            href="/admin"
+            role="button"
+            class="p-3 mx-2 btn btn-primary btn-lg btn-block"
+            style="justify-self: center; align-self: end; width: 100%"
+            ;
+            ><i class="fas fa-user-shield"></i> ADMIN</a
+          >
+          <a
+            href="/user/Login_Register/login"
+            role="button"
+            class="p-3 mx-2 btn btn-secondary btn-outline-light btn-lg btn-block"
+            style="justify-self: center; align-self: start; width: 100%"
+            ;
+            ><i class="fas fa-users"></i> USER</a
+          >
+        </div>
       </div>
     </div>
   </body>
