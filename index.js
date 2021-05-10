@@ -205,15 +205,17 @@ app.post(
     const dl = new Dl(req.body.dl);
     const dl1 = dl.dataValues;
     //console.log(id);
+   dl1.c_id = id;
     const u1 = await Dl.create(dl1);
     res.redirect(`/user/${id}/dashboard/dl/display/${u1.id}`);
   })
 );
 app.get(`/user/:id/dashboard/dl/display/:dlid`, async (req, res) => {
-  const id = req.params.dlid;
+  const id = req.params.id;
   const info = req.params;
   //console.log(info);
-  const data1 = await Dl.findAll({ where: { id: id } });
+  const data1 = await Dl.findAll({ where: { c_id: id } });
+ // console.log(data1);
   const data = data1[0].dataValues;
   res.render("dlcard", { data, info });
 });
@@ -230,6 +232,7 @@ app.post(
     const rc = new Rc(req.body.rc);
     const rc1 = rc.dataValues;
     //console.log(rc1);
+    rc1.c_id = id;
     const u1 = await Rc.create(rc1);
     //res.send("Successful Submission !!!");
     res.redirect(`/user/${id}/dashboard/rc/display/${u1.id}`);
@@ -243,11 +246,48 @@ app.get(`/user/:id/dashboard/rc/display/:rcid`, async (req, res) => {
   const data = data1[0].dataValues;
   res.render("rccard", { data, info });
 });
+app.get(
+  `/user/:id/dashboard/rc/show`,
+  catchAsync(async (req, res) => {
+    const data = await Rc.findAll({ where: { c_id: req.params.id } });
+    res.render("campgrounds/index/index3", { data });
+  })
+);
+
+app.get(
+  `/user/:id/dashboard/rc/:pid/edit`,
+  catchAsync(async (req, res) => {
+    const campground = await Rc.findAll({ where: { id: req.params.pid } });
+      const data = campground[0].dataValues;
+    res.render("campgrounds/edit/editrc", { data });
+  })
+);
+
+
+app.put(
+  `/user/:id/dashboard/rc/edit/:oid`,
+  catchAsync(async (req, res) => {
+    const user = new Rc(req.body.rc);
+    const u = user.dataValues;
+    u.id = req.params.oid;
+    u.c_id = req.params.id;
+    //console.log(user);
+    const u1 = await Rc.update(
+      u,
+      {
+        where: {
+          id: req.params.oid,
+        },
+      }
+    );
+    res.redirect(`/user/${req.params.id}/dashboard/rc/display/${u.id}`);
+  })
+)
 
 app.get(
   `/user/:id/dashboard/dl/edit`,
   catchAsync(async (req, res) => {
-    const campground = await Dl.findAll({ where: { id: req.params.id } });
+    const campground = await Dl.findAll({ where: { c_id: req.params.id } });
 
     const data = campground[0].dataValues;
     res.render("campgrounds/edit/editdl", { data });
@@ -255,17 +295,18 @@ app.get(
 );
 
 app.put(
-  `/user/:id/dashboard/dl/edit`,
+  `/user/:id/dashboard/dl/edit/:oid`,
   catchAsync(async (req, res) => {
     const user = new Dl(req.body.dl);
     const u = user.dataValues;
-    u.id = req.params.id;
+    u.id = req.params.oid;
+    u.c_id = req.params.id;
     //console.log(user);
     const u1 = await Dl.update(
       u,
       {
         where: {
-          id: req.params.id,
+          c_id: req.params.id,
         },
       }
     );

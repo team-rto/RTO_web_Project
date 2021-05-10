@@ -112,6 +112,13 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
+    c_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
   });
   return Rc;
 };

@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplateUser')%>
+<div class="display-3">All Users Applied For RC</div>
+
+<div class="row">
+  <% for (let info of data) {%>
+  <div class="col-4">
+    <div class="p-3 m-1 text-center card border-info">
+      <img
+        class="card-img-top"
+        src="https://picsum.photos/200"
+        alt="Card image cap"
+      />
+
+      <div class="card-body">
+        <h1><%= info.fname %> <%= info.lname %></h1>
+        <h5 class="card-title"><%= info.pdate %></h5>
+        <p class="card-text"><%= info.mname %></p>
+        <p class="card-text"><%= info.bl %></p>
+        <p class="card-text">
+          <small class="text-muted"><%= info.bphone %> </small>
+        </p>
+        <a
+          href="/user/<%= info.c_id %> /dashboard/rc/<%= info.id %> /edit"
+          class="btn btn-info btn-lg rounded-pill"
+        >
+          Renew
+        </a>
+        <a
+          href="/user/<%= info.c_id %> /dashboard"
+          class="btn btn-success btn-lg rounded-pill"
+        >
+          Home
+        </a>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>

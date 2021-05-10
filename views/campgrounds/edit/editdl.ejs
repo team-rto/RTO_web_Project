@@ -39,7 +39,7 @@
       </div>
     </nav>
     <div class="container">
-      <form name="myform" class="form-group" action="/user/<%= data.id %>/dashboard/dl/edit?_method=PUT" method="POST" novalidate class="validatedForm">
+      <form name="myform" class="form-group" action="/user/<%= data.c_id %>/dashboard/dl/edit/<%= data.id %>?_method=PUT" method="POST" novalidate class="validatedForm">
         <!-- <h2 style="text-align: center; font-weight: bold; font-size: 35px">
           License Registration
         </h2> -->
@@ -208,8 +208,9 @@
               required
             />
           </div>
+
           <div class="col-md-12" style="text-align: center; margin-top: 20px">
-            <button type="submit" class="btn btn-primary btn-block" style = "font-size: 25px">Edit</button>
+            <button type="submit" class="btn btn-primary btn-block" style = "font-size: 25px">Renew</button>
           </div>
         </div>
       </form>

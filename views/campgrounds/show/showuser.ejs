@@ -1,0 +1,61 @@
+<% layout('layouts/boilerplateUser')%>
+
+<div class="show"></div>
+<div class="row">
+  <div class="col-6 offset-3">
+    <div class="mb-3 card">
+      <h1><%= campground.fname %> <%= campground.lname%></h1>
+      <div class="card-body">
+        <h5 class="card-title"><%= campground.sdetail %> <%= campground.saddress %> </h5>
+        <p class="card-text"><%= campground.baddress %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-muted"><%= campground.pdate %></li>
+        <li class="list-group-item"><%= campground.bphone %></li>
+        <li class="list-group-item"><%= campground.type %> <%= campground.engine %> </li>
+        <li class="list-group-item"><%= campground.bname %> <%= campground.mname %> </li>
+        <li class="list-group-item"><%= campground.bl %></li>
+        <li class="list-group-item"><%= campground.bcity %>, <%= campground.bstate %>-<%= campground.bcode %>  </li>
+
+      </ul>
+      <div class="card-body">
+       
+        <a class="card-link btn btn-success" href="/admin/rc">Renew</a>
+      </div>
+      <footer class="card-footer text-muted">2 Days Ago</footer>
+    </div>
+  </div>
+</div>
+</div>
+<div class="for_spacing"></div>
+
+<style>
+  .new .for_spacing {
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+  }
+  .new .btn {
+    margin: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    font-size: 1.5rem;
+  }
+
+  .new h1 {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+  }
+  .new p {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+  }
+  .new li {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.5rem;
+  }
+</style>
