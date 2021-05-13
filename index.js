@@ -219,7 +219,17 @@ app.get(`/user/:id/dashboard/dl/display/:dlid`, async (req, res) => {
   const data = data1[0].dataValues;
   res.render("dlcard", { data, info });
 });
-
+app.get(
+  `/user/:id/dashboard/dl/show`,
+  catchAsync(async (req, res) => {
+   //const data = req.params;
+   const info = req.params;
+    const data1 = await Dl.findAll({ where: { c_id: req.params.id } });
+    const data = data1[0].dataValues;
+    //console.log(data);
+  res.render("dlcard", { data, info });
+  })
+);
 app.get(`/user/:id/dashboard/RC`, (req, res) => {
   const data = req.params;
   res.render("main_page/carRegistration", { data });
@@ -249,8 +259,9 @@ app.get(`/user/:id/dashboard/rc/display/:rcid`, async (req, res) => {
 app.get(
   `/user/:id/dashboard/rc/show`,
   catchAsync(async (req, res) => {
-    const data = await Rc.findAll({ where: { c_id: req.params.id } });
-    res.render("campgrounds/index/index3", { data });
+   const data = req.params;
+    const infos = await Rc.findAll({ where: { c_id: req.params.id } });
+    res.render("campgrounds/index/index3", { data,infos });
   })
 );
 

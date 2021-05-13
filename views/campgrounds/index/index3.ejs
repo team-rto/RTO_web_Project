@@ -2,7 +2,7 @@
 <div class="display-3">All Users Applied For RC</div>
 
 <div class="row">
-  <% for (let info of data) {%>
+  <% for (let info of infos) {%>
   <div class="col-4">
     <div class="p-3 m-1 text-center card border-info">
       <img
@@ -20,17 +20,23 @@
           <small class="text-muted"><%= info.bphone %> </small>
         </p>
         <a
-          href="/user/<%= info.c_id %> /dashboard/rc/<%= info.id %> /edit"
+          href="/user/<%= info.c_id %>/dashboard/rc/<%= info.id %> /edit"
           class="btn btn-info btn-lg rounded-pill"
         >
           Renew
         </a>
         <a
-          href="/user/<%= info.c_id %> /dashboard"
+          href="/user/<%= info.c_id %>/dashboard"
           class="btn btn-success btn-lg rounded-pill"
         >
           Home
         </a>
+        <a
+        href="/user/<%= info.c_id %>/dashboard/rc/display/<%= info.id %>"
+        class="btn btn-danger btn-lg rounded-pill"
+      >
+        View
+      </a>
       </div>
     </div>
   </div>

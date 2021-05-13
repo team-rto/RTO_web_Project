@@ -18,8 +18,8 @@
         Profile
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <li><button class="btn btn-lg dropdown-item" href = "/user_dl" type="button">View DL </button></li>
-        <li><button class="btn btn-lg dropdown-item" href = "" type="button">View RC</button></li>
+        <li><a class="btn btn-lg dropdown-item" href = "/user/<%= data.id %>/dashboard/dl/show" type="button">View DL </a></li>
+        <li><a class="btn btn-lg dropdown-item" href = "/user/<%= data.id %>/dashboard/rc/show" type="button">View RC</a></li>
         <li><button class="btn btn-lg dropdown-item" href = "" type="button">aise hi</button></li>
         <li>
           <form action="/user/logout" method="POST" >
