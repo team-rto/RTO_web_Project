@@ -16,6 +16,7 @@ const ExpressError = require("./utils/ExpressError");
 const methodOverride = require("method-override");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
+var nodemailer = require('nodemailer');
 
 const app = express();
 
@@ -46,6 +47,37 @@ console.log(config1);
 //     password: "password",
 //     database: "fake"
 // });
+
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+         user: 'work.prakharvasistha@gmail.com',			//email ID
+       pass: 'eiekorgsqjuxkhag'				//Password 
+     }
+ });
+ function sendMail(email , otp){
+   var details = {
+     from: 'work.prakharvasistha@gmail.com', // sender address same as above
+     to: email, 					// Receiver's email id
+     subject: 'RTO App OTP ', // Subject of the mail.
+     html: otp					// Sending OTP 
+   };
+ 
+ 
+   transporter.sendMail(details, function (error, data) {
+     if(error)
+       console.log(error)
+     else
+       console.log("OTP Sent!!!");
+     });
+   }
+   
+  //  var email = "vasistha.prakhar@gmail.com";
+  //  var otp = "123456";
+  //  sendMail(email,otp);			
+
+
 app.get(
   "/",
   catchAsync(async (req, res) => {
@@ -91,10 +123,60 @@ app.get("/Terms", (req, res) => {
 app.get("/user/forgot", (req, res) => {
   res.render("campgrounds/Login_Register/forgot/forgot");
 });
+var eotp;
+app.post("/user/forgot/check", async (req, res) => {
+ const email = req.body.email;
+ const data = await Login.findOne({ where: { email: email } });
+ if(data){
+    let otp1 = Math.floor(100000 + Math.random() * 900000);
+    let otp = otp1.toString();
+    eotp = otp;
+    sendMail(email,otp);
+    res.redirect(`/user/forgot/${data.id}/otp`);
+ } else {
+  //alert("Email Not Found!!!!");
+  res.redirect("/user/forgot");
+}
+})
 
-app.get("/user/forgot/reset", (req, res) => {
-  res.render("campgrounds/Login_Register/reset/reset");
+app.get(`/user/forgot/:id/otp`, (req, res) => {
+  const data = req.params;
+  res.render("campgrounds/Login_Register/forgot/forgot1", { data });
 });
+
+app.post(`/user/forgot/:id/otp/check`, (req, res) => {
+  let otp1 = req.body.otp;
+  let otp = eotp;
+  const data = req.params;
+  // console.log(otp1);
+  // console.log(eotp);
+  if(otp == otp1){
+    res.redirect(`/user/forgot/${ data.id }/reset`);
+  }
+  else{
+    console.log("Wrong OTP!!!");
+    res.redirect(`/user/forgot/${ data.id }/otp`);
+  }
+
+})
+
+app.get(`/user/forgot/:id/reset`, (req, res) => {
+  const data = req.params;
+  res.render("campgrounds/Login_Register/reset/reset", { data });
+});
+
+app.put(`/user/forgot/:id/reset`, async (req, res) => {
+  const {id} = req.params;
+  const np = req.body.password;
+  const nphash = await bcrypt.hash(np, 12);
+  const l = await Login.update({ password: nphash }, {
+    where: {
+      id: id
+    }
+  });
+  console.log("Password Updated Successfully!!!");
+  res.redirect("/user/Login_Register/login");
+})
 
 app.get("/user/register", (req, res) => {
   res.render("campgrounds/Login_Register/register/register");
@@ -131,6 +213,7 @@ app.post("/user/login", async (req, res) => {
     req.session.user_id = data.id;
     res.redirect(`/user/${data.id}/dashboard`);
   } else {
+    //alert('Wrong Credentials!!!!');
     res.redirect("/user/Login_Register/login");
   }
 });
