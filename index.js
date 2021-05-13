@@ -182,6 +182,11 @@ app.post("/user/logout", (req, res) => {
   req.session.destroy();
   res.redirect("/user/Login_Register/login");
 });
+app.post("/admin/logout", (req, res) => {
+  //req.session.user_id = null;
+  req.session.destroy();
+  res.redirect("/");
+});
 
 app.get("/user/:id/dashboard", (req, res) => {
   if (!req.session.user_id) {
