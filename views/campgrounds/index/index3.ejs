@@ -1,14 +1,17 @@
 <% layout('layouts/boilerplateUser')%>
-<div class="display-3">All Users Applied For RC</div>
+<div class="display-3 text-center my-4">Your RC's</div>
 
 <div class="row">
   <% for (let info of infos) {%>
   <div class="col-4">
-    <div class="p-3 m-1 text-center card border-info">
+    <div
+      class="p-3 m-1 text-center border-4 shadow-lg rounded-3 card border-info"
+    >
       <img
-        class="card-img-top"
+        class="shadow card-img-top"
         src="https://picsum.photos/200"
         alt="Card image cap"
+        style="border-radius: 100%"
       />
 
       <div class="card-body">
@@ -21,16 +24,16 @@
         </p>
         <a
           href="/user/<%= info.c_id %>/dashboard/rc/<%= info.id %> /edit"
-          class="btn btn-info btn-lg rounded-pill"
+          class="shadow btn btn-info btn-lg rounded-pill"
         >
           Renew
         </a>
         <a
-        href="/user/<%= info.c_id %>/dashboard/rc/display/<%= info.id %>"
-        class="btn btn-success btn-lg rounded-pill"
-      >
-        View
-      </a>
+          href="/user/<%= info.c_id %>/dashboard/rc/display/<%= info.id %>"
+          class="shadow btn btn-success btn-lg rounded-pill"
+        >
+          View
+        </a>
       </div>
     </div>
   </div>

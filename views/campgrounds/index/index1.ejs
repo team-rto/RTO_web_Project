@@ -1,14 +1,19 @@
 <% layout('layouts/boilerplate')%>
-<div class="display-3 mb-5">All Users Applied for Driving License</div>
+<div class="mb-5 text-center display-3">
+  All Users Applied for Driving License
+</div>
 
 <div class="row">
   <% for (let campground of campgrounds) {%>
   <div class="col-4">
-    <div class="p-3 m-1 text-center card border-info">
+    <div
+      class="p-3 m-1 text-center border-4 shadow-lg card border-info rounded-3"
+    >
       <img
-        class="card-img-top"
+        class="shadow card-img-top"
         src="https://picsum.photos/200"
         alt="Card image cap"
+        style="border-radius: 100%"
       />
 
       <div class="card-body">
@@ -20,7 +25,7 @@
         </p>
         <a
           href="/admin/dl/<%= campground.id %>"
-          class="btn btn-info btn-lg rounded-pill"
+          class="shadow btn btn-info btn-lg rounded-pill"
         >
           View <%= campground.fname %> <%= campground.lname %>
         </a>

@@ -35,8 +35,14 @@
         src="http://cdn.onlinewebfonts.com/svg/img_398183.png"
         alt="logo"
         style="max-width: 30%; justify-self: center; align-self: center"
+        ;
       />
-      <form action = "/user/forgot/check" method="POST" class="jumbotron my-login-validation" novalidate="">
+      <form
+        action="/user/forgot/check"
+        method="POST"
+        class="shadow-lg jumbotron my-login-validation"
+        novalidate=""
+      >
         <div class="form-group lead">
           <label for="email">E-Mail Address</label>
           <input
@@ -55,7 +61,7 @@
         </div>
 
         <div class="lead">
-          <button type="submit" class="btn btn-primary btn-block">
+          <button type="submit" class="rounded-pill btn btn-primary btn-block">
             <span class="lead">Reset Password</span>
           </button>
         </div>

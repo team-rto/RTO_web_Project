@@ -24,7 +24,7 @@
 
   <body>
     <nav
-      class="mx-4 my-4 mb-8 navbar navbar-expand-lg navbar-dark bg-dark rounded-pill shadow-lg"
+      class="mx-4 my-4 mb-8 shadow-lg navbar navbar-expand-lg navbar-dark bg-dark rounded-pill"
     >
       <div class="container-fluid">
         <a class="navbar-brand" href="#"> <span class="h1"> RTO </span></a>
@@ -62,13 +62,20 @@
         src="https://nagriksevakendra.in/default/login/avatar.png"
         alt="logo"
         class="img-fluid"
-        style="max-width: 30%; justify-self: center; align-self: center"
+        style="
+          max-width: 30%;
+          justify-self: center;
+          align-self: center;
+
+          border-radius: 100%;
+          box-shadow: 0 3px 15px 0px rgba(0, 0, 0, 0.5);
+        "
       />
       <form
         action="/user/login"
         method="POST"
-        class="jumbotron my-login-validation"
-        style="margin: 0 20px 0 20px"
+        class="py-4 shadow-lg jumbotron my-login-validation"
+        style="margin: 0 20px 0 20px; border-radius: 10%"
         novalidate=""
       >
         <div class="form-group">
@@ -113,7 +120,7 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block">
+        <button type="submit" class="rounded-pill btn btn-primary btn-block">
           <span class="lead">LOGIN</span>
         </button>
 
