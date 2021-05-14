@@ -5,37 +5,82 @@
     <meta name="viewport" content="width=device-width" />
     <title>Navbaruser</title>
     <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <nav class="mx-4 my-4 mb-8 navbar navbar-expand-lg navbar-dark bg-dark rounded-pill">
-      <div class="container-fluid" >
-        <a class="navbar-brand " href="#"> <span class="h1"> RTO </span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                                                                               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <nav
+      class="mx-4 my-4 mb-8 shadow-lg navbar navbar-expand-lg navbar-dark bg-dark rounded-pill"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"> <span class="h1"> RTO </span></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="pt-4 nav-link h4" href="/user/<%= data.id %>/dashboard">Home</a>
+              <a class="pt-4 nav-link h4" href="/user/<%= data.id %>/dashboard"
+                >Home</a
+              >
             </li>
           </ul>
-          </form>
         </div>
         <div class="dropdown">
-          <button class="px-4 m-0 btn btn-primary btn-lg dropdown-toggle h2 rounded-pill fs-4" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-      <img
-        src="https://picsum.photos/200"
-        class="ms-0 me-2 img-fluid rounded-circle"
-        style="width:4ch;"
-      />
+          <button
+            class="px-4 m-0 btn btn-primary btn-lg dropdown-toggle h2 rounded-pill fs-4"
+            type="button"
+            id="dropdownMenuButton2"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="https://picsum.photos/200"
+              class="ms-0 me-2 img-fluid rounded-circle"
+              style="width: 4ch"
+            />
             Profile
           </button>
-          <ul class="p-2 dropdown-menu dropdown-menu-dark bg-dark" aria-labelledby="dropdownMenuButton2">
-            <li><a class="dropdown-item fs-5" href="/user/<%= data.id %>/dashboard/dl/show">Your DL</a></li>
-            <li><a class="dropdown-item fs-5" href="/user/<%= data.id %>/dashboard/rc/show">Your RC</a></li>
-            <li> <form action="/user/logout" method="POST" > <button class="dropdown-item bg-danger btn btn-lg fs-5" type="submit"> Logout </button> </form> </li>
+          <ul
+            class="p-2 dropdown-menu dropdown-menu-dark bg-dark"
+            aria-labelledby="dropdownMenuButton2"
+          >
+            <li>
+              <a
+                class="dropdown-item fs-5"
+                href="/user/<%= data.id %>/dashboard/dl/show"
+                >Your DL</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item fs-5"
+                href="/user/<%= data.id %>/dashboard/rc/show"
+                >Your RC</a
+              >
+            </li>
+            <li>
+              <form action="/user/logout" method="POST">
+                <button
+                  class="dropdown-item bg-danger btn btn-lg fs-5"
+                  type="submit"
+                >
+                  Logout
+                </button>
+              </form>
+            </li>
           </ul>
         </div>
       </div>

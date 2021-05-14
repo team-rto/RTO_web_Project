@@ -1,19 +1,29 @@
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>navbar</title>
     <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous"
-        />
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-        <nav class="mx-4 my-4 mb-8 navbar navbar-expand-lg navbar-dark bg-dark rounded-pill">
-      <div class="container-fluid" >
-        <a class="navbar-brand " href="#"> <span class="h1"> RTO </span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <nav
+      class="mx-4 my-4 mb-8 navbar navbar-expand-lg navbar-dark bg-dark rounded-pill shadow-lg"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"> <span class="h1"> RTO </span></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -22,20 +32,22 @@
               <a class="pt-4 nav-link h4" href="/admin">Home</a>
             </li>
           </ul>
-          </form>
         </div>
-         <form action="/admin/logout" method="POST" > <button class="dropdown-item bg-danger btn btn-lg rounded-pill fs-3 text-light" type="submit">
+        <form action="/admin/logout" method="POST">
+          <button
+            class="dropdown-item bg-danger btn btn-lg rounded-pill fs-3 text-light"
+            type="submit"
+          >
+            <img
+              src="https://picsum.photos/200"
+              class="ms-0 me-2 img-fluid rounded-circle"
+              style="width: 4ch"
+            />
 
-                   <img
-        src="https://picsum.photos/200"
-        class="ms-0 me-2 img-fluid rounded-circle"
-        style="width:4ch;"
-      />
-
-
-             Logout </button> </form>
+            Logout
+          </button>
+        </form>
       </div>
     </nav>
-
   </body>
 </html>
