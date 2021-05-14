@@ -263,7 +263,7 @@ app.get(
 app.post("/user/logout", (req, res) => {
   //req.session.user_id = null;
   req.session.destroy();
-  res.redirect("/user/Login_Register/login");
+  res.redirect("/");
 });
 app.post("/admin/logout", (req, res) => {
   //req.session.user_id = null;
