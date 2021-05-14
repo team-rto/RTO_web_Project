@@ -11,7 +11,7 @@
   </head>
   <body>
     <nav
-      class="mx-4 my-4 mb-8 navbar navbar-expand-lg navbar-dark bg-dark shadow-lg rounded-pill"
+      class="mx-4 my-4 mb-8 shadow-lg navbar navbar-expand-lg navbar-dark bg-dark rounded-pill"
     >
       <div class="container-fluid">
         <a class="navbar-brand" href="#"> <span class="h1"> RTO </span></a>
@@ -51,35 +51,47 @@
     </nav>
 
     <div
-      class="container admin"
+      class="px-4 admin"
       style="
         margin-top: 100px;
         margin-bottom: 100px;
+
+        /*
         display: grid;
         grid-template-columns: 33% 33% 33%;
         column-gap: 40px;
         row-gap: 40px;
+        */
+
+        display: flex;
+        flex-basis: 100%;
+        flex-wrap: wrap;
+
+        align-items: center;
+
+        align-content: space-around;
+        justify-content: space-around;
       "
     >
       <a href="/admin/dl">
         <img
           src="/dl.png"
-          width="420"
-          class="border img-thumbnail border-info"
+          width="620"
+          class="my-5 border img-thumbnail border-info"
         />
       </a>
-      <a href="/admin/home"
-        ><img
-          src="https://techcrunch.com/wp-content/uploads/2017/06/facebook-group-admin-tools.png"
-          width="420"
-          class="border img-thumbnail border-info"
-          max-height="207.75"
-      /></a>
       <a href="/admin/rc"
         ><img
           src="/RC.png"
-          width="420"
-          class="border img-thumbnail border-info"
+          width="620"
+          class="my-5 border img-thumbnail border-info"
+      /></a>
+      <a href="/admin/home" style="justify-self: flex-start"
+        ><img
+          src="https://techcrunch.com/wp-content/uploads/2017/06/facebook-group-admin-tools.png"
+          width="620"
+          class="my-5 border img-thumbnail border-info"
+          max-height="207.75"
       /></a>
     </div>
     <%- include('../partials/footer') %>
@@ -87,7 +99,7 @@
     <style>
       .admin img {
         transition: transform 0.2s ease-in-out;
-        box-shadow: 10px 10px 5px #60a5fa;
+        box-shadow: 1rem 1rem 1rem #60a5fa;
       }
       .admin img:hover {
         transform: scale(1.06, 1.06);

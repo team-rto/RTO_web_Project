@@ -1,46 +1,64 @@
 <div class="services">
   <% layout('layouts/boilerplateUser')%>
   <div
-    class=""
+    class="px-4 contain"
     style="
       margin-top: 100px;
       margin-bottom: 100px;
+      /*
       display: grid;
-      grid-template-columns: 33% 33% 33%;
-      column-gap: 40px;
-      row-gap: 40px;
+      grid-template-columns: auto auto;
+      column-gap: 8rem;
+      row-gap: 6rem;
+      */
+      display: flex;
+      flex-basis: 100%;
+      flex-wrap: wrap;
+
+      align-items: center;
+
+      align-content: space-around;
+      justify-content: space-around;
     "
   >
     <a href="/user/<%= data.id %>/dashboard/dl">
-      <img src="/dl.png" width="420" class="border img-thumbnail border-info" />
+      <img src="/dl.png" width="620" class="border img-thumbnail border-info" />
     </a>
     <a href="/user/<%= data.id %>/dashboard/dl/edit">
       <img
         src="/dlrenewal.png"
-        width="420"
-        class="border img-thumbnail border-info"
-    /></a>
+        width="620"
+        class="my-4 border img-thumbnail border-info"
+      />
+    </a>
     <a href="/user/<%= data.id %>/dashboard/RC"
-      ><img src="/RC.png" width="420" class="border img-thumbnail border-info"
-    /></a>
+      ><img
+        src="/RC.png"
+        width="620"
+        class="my-4 border img-thumbnail border-info"
+      />
+    </a>
     <a href="/user/<%= data.id %>/dashboard/rc/show"
       ><img
         src="/renewrc.png"
-        width="420"
-        class="border img-thumbnail border-info"
-    /></a>
+        width="620"
+        class="my-4 border img-thumbnail border-info"
+      />
+    </a>
     <a href="#"
       ><img
         src="/fintessca.png"
-        width="420"
-        class="border img-thumbnail border-info"
-    /></a>
+        width="620"
+        class="my-4 border img-thumbnail border-info"
+      />
+    </a>
     <a href="#"
       ><img
         src="/others.png"
-        width="420"
-        class="border img-thumbnail border-info"
-    /></a>
+        width="620"
+        class="my-4 border img-thumbnail border-info"
+      />
+    </a>
   </div>
   <!-- </div> -->
 </div>
@@ -53,7 +71,7 @@
   }
   .services img {
     transition: transform 0.2s ease-in-out;
-    box-shadow: 10px 10px 5px #60a5fa;
+    box-shadow: 1rem 1rem 1rem #60a5fa;
   }
   .services img:hover {
     transform: scale(1.06, 1.06);

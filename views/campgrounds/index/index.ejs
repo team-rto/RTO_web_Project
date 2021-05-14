@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplate')%>
 <div class="text-center display-3">All Admins</div>
 
-<div class="jumbotron">
+<div class="jumbotron container">
   <div class="row">
     <% for (let campground of campgrounds) {%>
     <div class="col-4">
@@ -9,7 +9,7 @@
         class="p-3 m-1 text-center border-4 shadow-lg card border-info rounded-3"
       >
         <img
-          class="card-img-top shadow"
+          class="shadow card-img-top"
           src="https://picsum.photos/200"
           alt="Card image cap"
           style="border-radius: 100%"
