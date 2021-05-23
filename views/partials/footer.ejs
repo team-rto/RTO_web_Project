@@ -99,19 +99,22 @@
             <div class="col-md-6">
               <h6>Connect</h6>
               <div class="social">
-                <a href="#"
+                <a href="https://www.facebook.com/"
                   ><i class="fa fa-facebook" aria-hidden="true"></i
                 ></a>
-                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-google" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/LOGIN"i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://accounts.google.com/ServiceLogin/signinchooser?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="fa fa-google" aria-hidden="true"></i></a>
               </div>
-              <form class="my-3 form-footer">
+              <form class="my-3 form-footer searchform" action="https://www.google.com/search" method="get" name="searchform" target="_blank">
                 <input
                   type="text"
                   placeholder="search here...."
-                  name="search"
+                  name="q"
+                  value=""
+                  autocomplete="on" 
+                  required="required" 
                 />
-                <input type="button" value="Go" />
+                <input class="button" type="submit" value="Go" />
               </form>
             </div>
           </div>
